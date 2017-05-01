@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name="tinytext",
-    version="0.0.1",
+    version="1.0.0",
     packages=['tinytext'],
     author="hugovk",
     description="A helpful text converter to change any normal text into "

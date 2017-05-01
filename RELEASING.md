@@ -1,6 +1,6 @@
 # Release Checklist
 
-* [ ] Get master to the appropriate code release state.
+* [ ] Get master to the appropriate code release state. [Travis CI](https://travis-ci.org/hugovk/tinytext) should be running cleanly for all merges to master.
 * [ ] Update version in `tinytext/__init__.py` and `setup.py` and commit:
 ```bash
 git checkout master
@@ -14,8 +14,8 @@ git tag -a 1.1.0 -m "Release 1.1.0"
 ```
 * [ ] Release on PyPI:
 ```bash
-python setup.py register
-python setup.py sdist --format=gztar upload
+python setup.py sdist --format=gztar
+twine upload dist/tinytext-1.1.0.tar.gz
 ```
 * [ ] Check installation: `pip install -U tinytext`
 * [ ] Push: `git push`

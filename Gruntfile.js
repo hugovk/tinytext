@@ -15,7 +15,7 @@ module.exports = function(grunt) {
     },
 
     exec: {
-      run_tests: 'coverage run --include="tinytext/*" tests/test_tinytext.py && coverage report'
+      run_tests: 'coverage run --source=tinytext tests/test_tinytext.py && coverage report'
     },
 
     watch: {

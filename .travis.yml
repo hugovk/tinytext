@@ -15,7 +15,6 @@ cache: pip
 install:
   - pip install -U pip
   - pip install -U setuptools
-  - python setup.py install
   - pip install coverage
   - pip install pep8 pyflakes
 
@@ -25,7 +24,10 @@ script:
   - pep8 --statistics --count .
 
   # Unit tests
-  - coverage run --include="tinytext/*" tests/test_tinytext.py
+  - coverage run --source tinytext setup.py test
+
+  # Test install works
+  - python setup.py install
 
 after_success:
     # Report coverage and send to Codecov

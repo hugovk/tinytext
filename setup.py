@@ -30,6 +30,7 @@ setup(
         "Topic :: Artistic Software",
         "Topic :: Text Processing",
     ],
+    test_suite='tests',
 )
 
 # End of file

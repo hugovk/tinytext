@@ -1,0 +1,34 @@
+language: python
+
+python:
+  - pypy3
+  - pypy
+  - 2.7
+  - 3.6
+  - 3.5
+  - 3.4
+  - 3.3
+
+sudo: false
+
+cache: pip
+
+install:
+  - pip install coverage
+  - python setup.py install
+
+script:
+  # Static analysis
+  - pyflakes .
+  - pep8 --statistics --count .
+
+  # Unit tests
+  - coverage run --include="tinytext/*" tests/test_tinytext.py
+
+after_success:
+    # Report coverage and send to Codecov
+  - coverage report
+  - pip install codecov && codecov
+
+matrix:
+  fast_finish: true

@@ -31,6 +31,7 @@ setup(
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: PyPy",
         "Topic :: Artistic Software",
+        "Topic :: Text Processing",
     ],
 )
 

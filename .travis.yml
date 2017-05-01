@@ -16,6 +16,7 @@ cache: pip
 install:
   - pip install -U pip
   - pip install coverage
+  - pip install pep8 pyflakes
   - python setup.py install
 
 script:

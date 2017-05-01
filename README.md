@@ -1,8 +1,9 @@
 tinytext
 ========
 
-.. image:: https://travis-ci.org/hugovk/tinytext.svg?branch=master
-    :target: https://travis-ci.org/hugovk/tinytext
+[![Build Status](https://travis-ci.org/hugovk/tinytext.svg?branch=master)](https://travis-ci.org/hugovk/tinytext)
+[![codecov](https://codecov.io/gh/hugovk/tinytext/branch/master/graph/badge.svg)](https://codecov.io/gh/hugovk/tinytext)
+[![PyPI](https://img.shields.io/pypi/v/tinytext.svg)](https://pypi.python.org/pypi/tinytext)
 
 Convert your text ᶦᶰᵗᵒ ᵗᶦᶰᶦᵉʳ ᵗᵉˣᵗ
 

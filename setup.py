@@ -1,9 +1,6 @@
 # encoding: utf-8
 from __future__ import print_function, unicode_literals
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from setuptools import setup
 
 
 setup(

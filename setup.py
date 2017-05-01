@@ -6,13 +6,14 @@ from setuptools import setup
 setup(
     name="tinytext",
     version="1.0.0",
-    packages=['tinytext'],
+    packages=["tinytext"],
     author="hugovk",
     description="A helpful text converter to change any normal text into "
                 "cuter tinier text",
     url="https://github.com/hugovk/tinytext",
     long_description=open("README.md").read(),
-    keywords="botally tiny type text cute generator",
+    keywords=["botally", "tiny type", "tiny type", "tiny text", "cute text",
+              "generator"],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
@@ -30,7 +31,7 @@ setup(
         "Topic :: Artistic Software",
         "Topic :: Text Processing",
     ],
-    test_suite='tests',
+    test_suite="tests",
 )
 
 # End of file

@@ -15,12 +15,12 @@ install:
   - pip install -U pip
   - pip install -U setuptools
   - pip install coverage
-  - pip install pep8 pyflakes
+  - pip install pycodestyle pyflakes
 
 script:
   # Static analysis
   - pyflakes .
-  - pep8 --statistics --count .
+  - pycodestyle --statistics --count .
 
   # Unit tests
   - coverage run --source tinytext setup.py test

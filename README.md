@@ -1,8 +1,8 @@
 tinytext
 ========
 
-[![PyPI](https://img.shields.io/pypi/v/tinytext.svg)](https://pypi.python.org/pypi/tinytext)
-[![Python versions](https://img.shields.io/pypi/pyversions/tinytext.svg)](https://pypi.python.org/pypi/tinytext)
+[![PyPI](https://img.shields.io/pypi/v/tinytext.svg)](https://pypi.org/project/tinytext)
+[![Python versions](https://img.shields.io/pypi/pyversions/tinytext.svg)](https://pypi.org/project/tinytext)
 [![Build Status](https://travis-ci.org/hugovk/tinytext.svg?branch=master)](https://travis-ci.org/hugovk/tinytext)
 [![codecov](https://codecov.io/gh/hugovk/tinytext/branch/master/graph/badge.svg)](https://codecov.io/gh/hugovk/tinytext)
 

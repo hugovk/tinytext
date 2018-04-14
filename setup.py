@@ -2,16 +2,19 @@
 from __future__ import print_function, unicode_literals
 from setuptools import setup
 
+with open("README.md") as f:
+    long_description = f.read()
 
 setup(
     name="tinytext",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     version="1.0.0",
     packages=["tinytext"],
     author="hugovk",
     description="A helpful text converter to change any normal text into "
                 "cuter tinier text",
     url="https://github.com/hugovk/tinytext",
-    long_description=open("README.md").read(),
     keywords=["botally", "tiny type", "tiny type", "tiny text", "cute text",
               "generator"],
     python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",

@@ -8,7 +8,7 @@ setup(
     name="tinytext",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    version="1.0.0",
+    version="2.0.0",
     packages=["tinytext"],
     author="hugovk",
     description="A helpful text converter to change any normal text into "

@@ -7,7 +7,6 @@ import tinytext
 
 
 class TestTinyText(unittest.TestCase):
-
     def test_something(self):
         # Arrange
 
@@ -18,7 +17,7 @@ class TestTinyText(unittest.TestCase):
         self.assertEqual(tiny, "ᶦᶰᵗᵒ ᵗᶦᶰᶦᵉʳ ᵗᵉˣᵗ")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 # End of  file

@@ -1,13 +1,14 @@
 language: python
 
-python:
-  - pypy3
-  - 3.7-dev
-  - 3.6
-  - 3.5
-  - 3.4
-
-sudo: false
+matrix:
+  fast_finish: true
+  include:
+    - python: pypy
+    - python: 3.7
+      dist: xenial
+    - python: 3.6
+    - python: 3.5
+    - python: 3.4
 
 cache: pip
 
@@ -32,6 +33,3 @@ after_success:
     # Report coverage and send to Codecov
   - coverage report
   - pip install codecov && codecov
-
-matrix:
-  fast_finish: true

@@ -11,11 +11,16 @@ setup(
     version="2.0.0",
     packages=["tinytext"],
     author="hugovk",
-    description="A helpful text converter to change any normal text into "
-                "cuter tinier text",
+    description="A helpful converter to change any normal text into cuter tinier text",
     url="https://github.com/hugovk/tinytext",
-    keywords=["botally", "tiny type", "tiny type", "tiny text", "cute text",
-              "generator"],
+    keywords=[
+        "botally",
+        "tiny type",
+        "tiny type",
+        "tiny text",
+        "cute text",
+        "generator",
+    ],
     python_requires=">=3.6",
     classifiers=[
         "Development Status :: 3 - Alpha",

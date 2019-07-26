@@ -11,21 +11,15 @@ matrix:
 
 install:
   - pip install -U pip
-  - pip install -U black
-  - pip install -U coverage
-  - pip install -U flake8
   - pip install -U setuptools
-  -
+  - pip install -e ".[dev]"
+
 script:
   # Static analysis
-  - flake8 --statistics --count
-  - black --check --diff .
+  - pre-commit run --all-files
 
   # Unit tests
-  - coverage run --source tinytext setup.py test
-
-  # Test install works
-  - python setup.py install
+  - pytest --cov tinytext
 
 after_success:
     # Report coverage and send to Codecov

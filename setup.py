@@ -6,12 +6,12 @@ with open("README.md") as f:
 
 setup(
     name="tinytext",
+    description="A helpful converter to change any normal text into cuter tinier text",
     long_description=long_description,
     long_description_content_type="text/markdown",
     version="2.0.0",
     packages=["tinytext"],
     author="hugovk",
-    description="A helpful converter to change any normal text into cuter tinier text",
     url="https://github.com/hugovk/tinytext",
     keywords=[
         "botally",
@@ -21,6 +21,7 @@ setup(
         "cute text",
         "generator",
     ],
+    extras_require={"dev": ["black", "flake8", "pre-commit", "pytest", "pytest-cov"]},
     python_requires=">=3.6",
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -35,7 +36,6 @@ setup(
         "Topic :: Artistic Software",
         "Topic :: Text Processing",
     ],
-    test_suite="tests",
 )
 
 # End of file

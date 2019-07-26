@@ -6,28 +6,20 @@ matrix:
   fast_finish: true
   include:
     - python: 3.7
+      env: TOXENV=lint
+    - python: 3.7
     - python: 3.6
     - python: 3.8-dev
 
 install:
   - pip install -U pip
-  - pip install -U black
-  - pip install -U coverage
-  - pip install -U flake8
-  - pip install -U setuptools
-  -
+  - pip install -U tox-travis
+
 script:
-  # Static analysis
-  - flake8 --statistics --count
-  - black --check --diff .
-
-  # Unit tests
-  - coverage run --source tinytext setup.py test
-
-  # Test install works
-  - python setup.py install
+  - tox
 
 after_success:
-    # Report coverage and send to Codecov
-  - coverage report
-  - pip install -U codecov && codecov
+  - |
+    if [ "$TOXENV" != "lint" ]; then
+      codecov
+    fi

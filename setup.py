@@ -21,7 +21,9 @@ setup(
         "cute text",
         "generator",
     ],
-    extras_require={"dev": ["black", "flake8", "pre-commit", "pytest", "pytest-cov"]},
+    extras_require={
+        "dev": ["black", "codecov", "flake8", "pre-commit", "pytest", "pytest-cov"]
+    },
     python_requires=">=3.6",
     classifiers=[
         "Development Status :: 3 - Alpha",

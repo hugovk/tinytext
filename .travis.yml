@@ -21,7 +21,7 @@ script:
 after_success:
   - |
     if [ "$TOXENV" != "lint" ]; then
-      codecov
+      pip install codecov && codecov
     fi
 
 deploy:

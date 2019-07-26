@@ -33,9 +33,9 @@ deploy:
       repo: hugovk/tinytext
       branch: master
       condition: $DEPLOYER = true
-    user: "@token"
+    user: hugovk
     password:
-      secure: "V8tmw/GjaN+Yk/eeJCcDEhEKWqyQY7H1cpDKCvATxaBdc4261dbgfKWjpifx8a9ByjW5POY09SuM5spyA8XawnA61RLItUdDi6p/OK2vZ/AGK8gYrvKbsLPzZQoq1/hzNyD9wRQNFcF0d2U4VYNbYiGiwN2qVWe9A1JCWqcwLPeu+ioeDKM2DgPmaa9nViYNtNmsNwWDB+ptztp17zKLaXL7W3Rhe2B4Tid/v8fNqKdkHGuH60VSNL2eqWWWap/yDctTB9nqqpLl9ZOWgWYrZQzyzeMSzUp0s80YCIty+umMC5GdaMZX4qsj4A4dk2sa6sU2IasmHs0kKHNqs3r6QE9TOcxMI1JFPch3jq+i+nRg1bA1E+JjYmlvVdPJhKrlMv/jvDiaukMtFa+Kk52xGXFWwDX5IC+Vedv/xRSVLE2/WgHLGWfV7t0bWeZaUhx3OS2L8eJh4eCRHGG68o0VoXmSPLEM7tzRT0sy1THyLY/nTwFh3/u99kG4xFUQ6TGntRzRCBVFj/bjmvqlLMeOb+yTuIG0bHUG7e+ozYZAGGCUu0VTemlYG0jSmiqU4QeKJS3YSMWuglUTxgg/9LPRj4OJsuhvfOejygz1hERruhMewmpZtNJStEuN2L+Tmxj/pymO8x9QL6unTp+yhH7us+f3CApjY/c275qGhi3nm3I="
+      secure: "SOEzeD1SylX6UqPXAfY3gAwvM46s1gUv+YwpRb7qkT4ugO0uWw1D5DaYHve8/GxHTpjIZF+YVG0JE9Rpd57wYbfiqULBLrFugOlE17DikeP1ic2ZUh0UP0RGilAAaJuJv9bsda5dbbri4DHWmequQ0iF5r7TtdkHCpdq4SCHQefbczn7457eX8/3Vl+McmZAg6ghNF1zjsFl2r1uBuBJGfLhNs5g5szwh3c2oAogMeHFgqClQO2nuMhNmZrTk75ON2Toz+Jo9IASgg7AI3+Ump/VrZXqfmp3KFcngBJ8DUgGtWx2luqfSB5Dy8KcZmmeToJpsABoHJk1B397pNKKAFLrNfjixGgXEKoTL9Qcx59dY5vFiLn64u09bXFQIy6jhmDpCnwEbgTOUqTuwpv6BDiiSTZFC5sjf+eV/jNj11X53NZEPxqsYDZY0rTK6/lxflYD5VsjjhOVYNlWsOaV2CjMglAahv/79Jd2BUB7CQDSMJmDF2LWBgQXVA6iGkLbU09xEHo4AVsh753ox80wDYTqT+jgc+Vem6t7LK9MI6vErn4KQp1MzIl4k4+XGN82J8j4SoenQ7dDASInEJxvRUl7QJ50OFttA4wIGQjaSBDJv87pGaedKkhivqIZTd8QyrM2J99Vi45BCcB9cFb/0FTBOwVjqdTHTxY7dk0San8="
     distributions: sdist --format=gztar bdist_wheel
     skip_existing: true
   - provider: pypi
@@ -44,8 +44,8 @@ deploy:
       repo: hugovk/tinytext
       branch: master
       condition: $DEPLOYER = true
-    user: "@token"
+    user: hugovk
     password:
-      secure: "V8tmw/GjaN+Yk/eeJCcDEhEKWqyQY7H1cpDKCvATxaBdc4261dbgfKWjpifx8a9ByjW5POY09SuM5spyA8XawnA61RLItUdDi6p/OK2vZ/AGK8gYrvKbsLPzZQoq1/hzNyD9wRQNFcF0d2U4VYNbYiGiwN2qVWe9A1JCWqcwLPeu+ioeDKM2DgPmaa9nViYNtNmsNwWDB+ptztp17zKLaXL7W3Rhe2B4Tid/v8fNqKdkHGuH60VSNL2eqWWWap/yDctTB9nqqpLl9ZOWgWYrZQzyzeMSzUp0s80YCIty+umMC5GdaMZX4qsj4A4dk2sa6sU2IasmHs0kKHNqs3r6QE9TOcxMI1JFPch3jq+i+nRg1bA1E+JjYmlvVdPJhKrlMv/jvDiaukMtFa+Kk52xGXFWwDX5IC+Vedv/xRSVLE2/WgHLGWfV7t0bWeZaUhx3OS2L8eJh4eCRHGG68o0VoXmSPLEM7tzRT0sy1THyLY/nTwFh3/u99kG4xFUQ6TGntRzRCBVFj/bjmvqlLMeOb+yTuIG0bHUG7e+ozYZAGGCUu0VTemlYG0jSmiqU4QeKJS3YSMWuglUTxgg/9LPRj4OJsuhvfOejygz1hERruhMewmpZtNJStEuN2L+Tmxj/pymO8x9QL6unTp+yhH7us+f3CApjY/c275qGhi3nm3I="
+      secure: "SOEzeD1SylX6UqPXAfY3gAwvM46s1gUv+YwpRb7qkT4ugO0uWw1D5DaYHve8/GxHTpjIZF+YVG0JE9Rpd57wYbfiqULBLrFugOlE17DikeP1ic2ZUh0UP0RGilAAaJuJv9bsda5dbbri4DHWmequQ0iF5r7TtdkHCpdq4SCHQefbczn7457eX8/3Vl+McmZAg6ghNF1zjsFl2r1uBuBJGfLhNs5g5szwh3c2oAogMeHFgqClQO2nuMhNmZrTk75ON2Toz+Jo9IASgg7AI3+Ump/VrZXqfmp3KFcngBJ8DUgGtWx2luqfSB5Dy8KcZmmeToJpsABoHJk1B397pNKKAFLrNfjixGgXEKoTL9Qcx59dY5vFiLn64u09bXFQIy6jhmDpCnwEbgTOUqTuwpv6BDiiSTZFC5sjf+eV/jNj11X53NZEPxqsYDZY0rTK6/lxflYD5VsjjhOVYNlWsOaV2CjMglAahv/79Jd2BUB7CQDSMJmDF2LWBgQXVA6iGkLbU09xEHo4AVsh753ox80wDYTqT+jgc+Vem6t7LK9MI6vErn4KQp1MzIl4k4+XGN82J8j4SoenQ7dDASInEJxvRUl7QJ50OFttA4wIGQjaSBDJv87pGaedKkhivqIZTd8QyrM2J99Vi45BCcB9cFb/0FTBOwVjqdTHTxY7dk0San8="
     distributions: sdist --format=gztar bdist_wheel
     skip_existing: true

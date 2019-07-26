@@ -30,4 +30,11 @@ from tinytext import tinytext
 print(tinytext("hello friend"))
 ```
 
+Or on the command line:
+
+```console
+$ tinytext "hello friend"
+ʰᵉᶫᶫᵒ ᶠʳᶦᵉᶰᵈ
+```
+
 And that's it!

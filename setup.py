@@ -22,6 +22,7 @@ setup(
     ],
     packages=find_packages(where="src"),
     package_dir={"": "src"},
+    entry_points={"console_scripts": ["tinytext = tinytext.cli:main"]},
     zip_safe=True,
     extras_require={
         "dev": ["black", "codecov", "flake8", "pre-commit", "pytest", "pytest-cov"]

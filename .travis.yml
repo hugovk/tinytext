@@ -8,6 +8,7 @@ matrix:
     - python: 3.7
       env: TOXENV=lint
     - python: 3.7
+      env: DEPLOYER=true
     - python: 3.6
     - python: 3.8-dev
 
@@ -21,5 +22,30 @@ script:
 after_success:
   - |
     if [ "$TOXENV" != "lint" ]; then
-      codecov
+      pip install codecov && codecov
     fi
+
+deploy:
+  - provider: pypi
+    server: https://test.pypi.org/legacy/
+    on:
+      tags: false
+      repo: hugovk/tinytext
+      branch: master
+      condition: $DEPLOYER = true
+    user: "@token"
+    password:
+      secure: "vYN6qtL0MND9/t3H/plAhAt5xBtzrWJsgDQA255B7VAF6rh6rwB9Z253BhXRdtXDIRX8tp7/5WYM235tE8rfZReLyq8hdlKcvlwli1k9IhO/Yc4dalG1lPSW0uxIV0NBfDmaOdZ9y9NyvGYeURGRTD9YUVZhr2Nasm8xcsft6h8PhxJ9+5waHIEzj0tCCgdbjsY8GnZzyyfu7uvRg5wz8qT6MLVsSd1huSYra0+bmi3IdVb05hCLnNkps0p0SjNZy3qWi9N4bPvr9ZGqKh8CwYk5gyF4ufYgX5y35v8c95AyB8vzMGJCRgyK6/ZW7nvO15cqBiCF3VrKgEtjq8fNCfVJQ2si0Hm9KHh2iF1rrDU5NwEIU23JkhjioXkeUn2yW2n9wuozv3tKzgtjT7aVf9Z39p15Pc11YVmCHzhd0jgJWaL7WgDSgz25BpUB0hKRQVdGIQYGPyW1LuIOe1BUyUb6LbXQ3Ii08t/kIn3G/23gETja1eFxxbEij4T5KtkOvh37hc+NSrsOCIA8yijzo/yvUCv0Y+ZokZcy/0yCfcOCJ64compqQh2sPDfbZyI8AF7sX+4/loQ3dfRU3/YPAjUxZz+ApqlisVtbWYIuPklM0DIKP/dWPX/oNOmUYTZFBvkT+8uTLCNwj1WAwPS+kIu9VumA4DY70sFwKn3a1t0="
+    distributions: sdist --format=gztar bdist_wheel
+    skip_existing: true
+  - provider: pypi
+    on:
+      tags: true
+      repo: hugovk/tinytext
+      branch: master
+      condition: $DEPLOYER = true
+    user: "@token"
+    password:
+      secure: "vYN6qtL0MND9/t3H/plAhAt5xBtzrWJsgDQA255B7VAF6rh6rwB9Z253BhXRdtXDIRX8tp7/5WYM235tE8rfZReLyq8hdlKcvlwli1k9IhO/Yc4dalG1lPSW0uxIV0NBfDmaOdZ9y9NyvGYeURGRTD9YUVZhr2Nasm8xcsft6h8PhxJ9+5waHIEzj0tCCgdbjsY8GnZzyyfu7uvRg5wz8qT6MLVsSd1huSYra0+bmi3IdVb05hCLnNkps0p0SjNZy3qWi9N4bPvr9ZGqKh8CwYk5gyF4ufYgX5y35v8c95AyB8vzMGJCRgyK6/ZW7nvO15cqBiCF3VrKgEtjq8fNCfVJQ2si0Hm9KHh2iF1rrDU5NwEIU23JkhjioXkeUn2yW2n9wuozv3tKzgtjT7aVf9Z39p15Pc11YVmCHzhd0jgJWaL7WgDSgz25BpUB0hKRQVdGIQYGPyW1LuIOe1BUyUb6LbXQ3Ii08t/kIn3G/23gETja1eFxxbEij4T5KtkOvh37hc+NSrsOCIA8yijzo/yvUCv0Y+ZokZcy/0yCfcOCJ64compqQh2sPDfbZyI8AF7sX+4/loQ3dfRU3/YPAjUxZz+ApqlisVtbWYIuPklM0DIKP/dWPX/oNOmUYTZFBvkT+8uTLCNwj1WAwPS+kIu9VumA4DY70sFwKn3a1t0="
+    distributions: sdist --format=gztar bdist_wheel
+    skip_existing: true

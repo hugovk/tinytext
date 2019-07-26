@@ -10,7 +10,7 @@ import tinytext
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("text", help="Text to tinyfy")
+    parser.add_argument("text", help="Text to tinify")
     parser.add_argument(
         "-V", "--version", action="version", version=f"%(prog)s {tinytext.__version__}"
     )

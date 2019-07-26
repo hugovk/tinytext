@@ -1,5 +1,7 @@
 # encoding: utf-8
-__version__ = "2.0.0"
+import pkg_resources
+
+__version__ = pkg_resources.get_distribution(__name__).version
 
 
 tiny_letters = {

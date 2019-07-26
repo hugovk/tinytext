@@ -4,12 +4,18 @@ from setuptools import find_packages, setup
 with open("README.md") as f:
     long_description = f.read()
 
+
+def local_scheme(version):
+    """Skip the local version (eg. +xyz of 0.6.1.dev4+gdf99fe2)
+    to be able to upload to Test PyPI"""
+    return ""
+
+
 setup(
     name="tinytext",
     description="A helpful converter to change any normal text into cuter tinier text",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    version="2.0.0",
     author="hugovk",
     url="https://github.com/hugovk/tinytext",
     keywords=[
@@ -24,6 +30,8 @@ setup(
     package_dir={"": "src"},
     entry_points={"console_scripts": ["tinytext = tinytext.cli:main"]},
     zip_safe=True,
+    use_scm_version={"local_scheme": local_scheme},
+    setup_requires=["setuptools_scm"],
     extras_require={
         "dev": ["black", "codecov", "flake8", "pre-commit", "pytest", "pytest-cov"]
     },

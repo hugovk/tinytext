@@ -1,5 +1,5 @@
 # encoding: utf-8
-from setuptools import setup
+from setuptools import find_packages, setup
 
 with open("README.md") as f:
     long_description = f.read()
@@ -10,7 +10,6 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     version="2.0.0",
-    packages=["tinytext"],
     author="hugovk",
     url="https://github.com/hugovk/tinytext",
     keywords=[
@@ -21,6 +20,9 @@ setup(
         "cute text",
         "generator",
     ],
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
+    zip_safe=True,
     extras_require={
         "dev": ["black", "codecov", "flake8", "pre-commit", "pytest", "pytest-cov"]
     },

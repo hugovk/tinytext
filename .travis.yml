@@ -21,7 +21,7 @@ script:
 after_success:
   - |
     if [ "$TOXENV" != "lint" ]; then
-      pip install codecov && codecov
+      pip install -U codecov && codecov
     fi
 
 deploy:
@@ -32,9 +32,9 @@ deploy:
       repo: hugovk/tinytext
       branch: master
       condition: $TOXENV = lint
-    user: "@token"
+    user: __token__
     password:
-      secure: "GanrAfzFDsURl5vFNaWe3VT4/39v6GRhgOh6N5Bq2iKajCQ1758zX5J9IHlf5Jz+2TFMbkDTJpMbG3TKAQ3xkarK600rPdorVWIPDsEIgfvpzG/a65oyEpCLo4C2xT6EydhfZvQSJy0XQwnTyHJuM4kkVvDytSB9X87YtOK330dacYxseZWCb85grkf7Csf+1ScEvQURmldGb4DFY9cQwMGtVqWXAHnfScTnDKaycQr5AaX/e+8UzzWYYE7xXvnbXtUibyEi1VqyU3FcC0MOIfX1z3CoZRtz0EX/vSMINjg+neTSpWmNEqyhTkEWYWmCjtqj3Um1jsZUSXtjwqqbuuD2SBOyOQ55M1FePLgsb3iORByhDdVFsVdvVvQw1KIla8Zubjg75GSRXbJO/PJ5drjy5xpNJNAzFNxeNfcg0ZI+tb+4dVjTPmW0JOtNAYy/GSRkPkX1OgF396nx2Bs3qwNZ4+CI38Arfa2hXFBiT2OjUilRct55Ho9g1HLiiKxjYsFmzAtwD13yL13WOvYkmM3XZHuL5/WJD1COZQ4ZUVuGiI9wOxiC1//gCSC3H2IUMFTZ9RMEqauMba3VYo1eBOhqNykCOJve0aE5D3C/nF6yej27+w9TKQErmOreHo198ej2FGHb0yOxW+1iCQz9hH67CRGjE0PStqAKTVcpwRo="
+      secure: "S6IxZb3YyapFKhkcXpCZqDAD0a5jZ+vLK7HDKBdgvXmgs1S9rcDOyMrKU4qyjAij4Xlg8GQPFU74W5Vd1JBhjC/6Jns1V+PHrlDTg0C/wiH5idiVUrTCaqyt5eqsq+EORGZV6hYZEpA4Uyz9gdCUuhIl6zjFX0nBhSV2sOULZhqBZb6Ug0CdxahOQVcZOhrNoxsM1UrxdRFz0WITj2V4VF60v3GRkdBOeIXT0UvJ44oHt95/BFdQPMiaZj3YcADZc9Mym2PbKL2/cX1/RSdg0mO74Wp1+OLXAApuVDGFeFgji+zrEJBHR9FoWRuxkLt22POcE5zmcaz7DLD731WG/DtUY9D6RproCqxzbielS5+8+YpLUooH98sc2L77OgKDwuLejskbfF8H9iMdkpAtiWPwLM2SljvNJ05+R98V+IPezarO1vYSAmWx+OB7Li0J4078ML61reV/NhIPsRj2g7Norl7AYWtUEu7WelUDjvx5p/VqYlcyNKpYgtm+iznWa5FYmTNYei7AIe2aYuoDS61mzGUJT6OLkqkIwdIn1p/RY5nCeOJioGJ65fo8pzpCUVkXjcJoNoBEL5VMtFg3Oe5ksS1SY+aw7JqYVeDs8xFjO6XQEUfaLb0lKsjZRMerhCqKkjpkD26SMmBY9x3B4PTPqqK1eKC1lqM4KvZMy7M="
     distributions: sdist --format=gztar bdist_wheel
     skip_existing: true
   - provider: pypi
@@ -43,8 +43,8 @@ deploy:
       repo: hugovk/tinytext
       branch: master
       condition: $TOXENV = lint
-    user: "@token"
+    user: __token__
     password:
-      secure: "V8tmw/GjaN+Yk/eeJCcDEhEKWqyQY7H1cpDKCvATxaBdc4261dbgfKWjpifx8a9ByjW5POY09SuM5spyA8XawnA61RLItUdDi6p/OK2vZ/AGK8gYrvKbsLPzZQoq1/hzNyD9wRQNFcF0d2U4VYNbYiGiwN2qVWe9A1JCWqcwLPeu+ioeDKM2DgPmaa9nViYNtNmsNwWDB+ptztp17zKLaXL7W3Rhe2B4Tid/v8fNqKdkHGuH60VSNL2eqWWWap/yDctTB9nqqpLl9ZOWgWYrZQzyzeMSzUp0s80YCIty+umMC5GdaMZX4qsj4A4dk2sa6sU2IasmHs0kKHNqs3r6QE9TOcxMI1JFPch3jq+i+nRg1bA1E+JjYmlvVdPJhKrlMv/jvDiaukMtFa+Kk52xGXFWwDX5IC+Vedv/xRSVLE2/WgHLGWfV7t0bWeZaUhx3OS2L8eJh4eCRHGG68o0VoXmSPLEM7tzRT0sy1THyLY/nTwFh3/u99kG4xFUQ6TGntRzRCBVFj/bjmvqlLMeOb+yTuIG0bHUG7e+ozYZAGGCUu0VTemlYG0jSmiqU4QeKJS3YSMWuglUTxgg/9LPRj4OJsuhvfOejygz1hERruhMewmpZtNJStEuN2L+Tmxj/pymO8x9QL6unTp+yhH7us+f3CApjY/c275qGhi3nm3I="
+      secure: "JXDLPaITuxdYaTnreYBKwPpTMsI9KKBrRYTOt6NFmZAfWFt3ld4Y0W2BgsV5WEzHRxD7pNSJST2wjzJS1iq/po3YBdR1JpQXLEHgQ7EZg6/yajt9U0D7WbphnkPy//ZB4SfW5rLiUhgBZETLv6KR/3TTY6oXKOc0Iamj4i0Uf75QDzH/U/okB6B77gFsQ5Fyj1zHGA7F3JWy4F+s4WGHsGRi8M+pcrHxLgtwjgOg+s9i63MEBagSPoUksI/j0GBY93SUGu6lx4nkRPj4l1M/fD6VgINPtCW0KkiGmenddmCDccoeuqRr9jVwdMLtwKdeaZF4T726JVxZSgTFGmgirvkEaWi0coFFnd58qaGCyRiwCT2P9Q0y+1IsQL2qhbVBJ0+QrTA0Z3xCa0NykbLN0lJ205llMwEcwLLC8kJkGyhzXisSBT33Roc0ix14TMDRv+6QGWD905wSlYJWZTaOiE6NffiOjv93ZL4hVQvi1BlXPhyNQwb9UDcdNKK11i/UpBszjqPlbgSU76OSbyFms/OPqjzpOhmRWVLm5+qWRDFuTni8mv/TLErpbEcckPaycuKhP13ZEuRfeIIXQWvSmUDE0dp+4uVAbRNxHzvHACSeHrfMD9YSqvRUo+LSxcsKlp23jAkbNZGmYJ1Ep/oyLw9Xdnk+7f0Bb6xVD9z+JyU="
     distributions: sdist --format=gztar bdist_wheel
     skip_existing: true

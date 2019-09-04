@@ -4,7 +4,9 @@ tinytext
 [![PyPI](https://img.shields.io/pypi/v/tinytext.svg)](https://pypi.org/project/tinytext)
 [![Python versions](https://img.shields.io/pypi/pyversions/tinytext.svg)](https://pypi.org/project/tinytext)
 [![Build Status](https://travis-ci.org/hugovk/tinytext.svg?branch=master)](https://travis-ci.org/hugovk/tinytext)
+[![Actions Status](https://github.com/hugovk/tinytext/workflows/Test/badge.svg)](https://github.com/hugovk/tinytext/actions)
 [![codecov](https://codecov.io/gh/hugovk/tinytext/branch/master/graph/badge.svg)](https://codecov.io/gh/hugovk/tinytext)
+[![GitHub](https://img.shields.io/github/license/hugovk/tinytext.svg)](LICENSE.txt)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 Convert your text ᶦᶰᵗᵒ ᵗᶦᶰᶦᵉʳ ᵗᵉˣᵗ

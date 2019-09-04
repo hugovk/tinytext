@@ -1,4 +1,3 @@
-# encoding: utf-8
 from setuptools import find_packages, setup
 
 with open("README.md") as f:
@@ -18,6 +17,7 @@ setup(
     long_description_content_type="text/markdown",
     author="hugovk",
     url="https://github.com/hugovk/tinytext",
+    license="MIT",
     keywords=[
         "botally",
         "tiny type",
@@ -50,5 +50,3 @@ setup(
         "Topic :: Text Processing",
     ],
 )
-
-# End of file

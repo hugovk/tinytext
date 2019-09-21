@@ -32,9 +32,7 @@ setup(
     zip_safe=True,
     use_scm_version={"local_scheme": local_scheme},
     setup_requires=["setuptools_scm"],
-    extras_require={
-        "dev": ["black", "codecov", "flake8", "pre-commit", "pytest", "pytest-cov"]
-    },
+    extras_require={"tests": ["hypothesis-auto", "pytest", "pytest-cov"]},
     python_requires=">=3.6",
     classifiers=[
         "Development Status :: 3 - Alpha",

@@ -35,14 +35,16 @@ pip-log.txt
 pip-delete-this-directory.txt
 
 # Unit test / coverage reports
-htmlcov/
-.tox/
+*,cover
+.cache
 .coverage
 .coverage.*
-.cache
-nosetests.xml
+.hypothesis
+.mypy_cache
+.tox/
 coverage.xml
-*,cover
+htmlcov/
+nosetests.xml
 
 # Translations
 *.mo
@@ -58,4 +60,3 @@ docs/_build/
 target/
 
 node_modules/
-.mypy_cache

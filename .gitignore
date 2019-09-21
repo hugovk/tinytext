@@ -58,3 +58,4 @@ docs/_build/
 target/
 
 node_modules/
+.mypy_cache

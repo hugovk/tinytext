@@ -1,5 +1,3 @@
-from __future__ import print_function, unicode_literals
-
 import unittest
 
 import tinytext
@@ -19,4 +17,4 @@ class TestTinyText(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main()
 
-# End of  file
+# End of file

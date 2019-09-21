@@ -1,9 +1,11 @@
+from typing import Dict
+
 import pkg_resources
 
-__version__ = pkg_resources.get_distribution(__name__).version
+__version__: str = pkg_resources.get_distribution(__name__).version
 
 
-tiny_letters = {
+tiny_letters: Dict[int, str] = {
     ord("a"): "ᵃ",
     ord("b"): "ᵇ",
     ord("c"): "ᶜ",
@@ -82,7 +84,7 @@ tiny_letters = {
 }
 
 
-def tinytext(big):
+def tinytext(big: str) -> str:
     """convert your text ᶦᶰᵗᵒ ᵗᶦᶰᶦᵉʳ ᵗᵉˣᵗ"""
     tiny = big.translate(tiny_letters)
     return tiny

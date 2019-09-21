@@ -6,7 +6,7 @@ with open("README.md") as f:
 
 def local_scheme(version):
     """Skip the local version (eg. +xyz of 0.6.1.dev4+gdf99fe2)
-    to be able to upload to Test PyPI"""
+    to be able to upload to TestPyPI"""
     return ""
 
 
@@ -32,9 +32,7 @@ setup(
     zip_safe=True,
     use_scm_version={"local_scheme": local_scheme},
     setup_requires=["setuptools_scm"],
-    extras_require={
-        "dev": ["black", "codecov", "flake8", "pre-commit", "pytest", "pytest-cov"]
-    },
+    extras_require={"tests": ["hypothesis-auto", "pytest", "pytest-cov"]},
     python_requires=">=3.6",
     classifiers=[
         "Development Status :: 3 - Alpha",

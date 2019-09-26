@@ -1,5 +1,4 @@
-tinytext
-========
+# tinytext
 
 [![PyPI version](https://img.shields.io/pypi/v/tinytext.svg)](https://pypi.org/project/tinytext)
 [![Supported Python versions](https://img.shields.io/pypi/pyversions/tinytext.svg?logo=python&logoColor=FFE873)](https://pypi.org/project/tinytext)
@@ -18,8 +17,7 @@ Especially helpful for cute bot needs.
 
 A Python port of [Rachel White's tiny-text for Node](https://github.com/rachelnicole/tiny-text).
 
-How to use
-----------
+## How to use
 
 Install the package into your lovely codebase.
 

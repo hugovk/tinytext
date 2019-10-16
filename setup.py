@@ -6,7 +6,7 @@ with open("README.md") as f:
 
 def local_scheme(version):
     """Skip the local version (eg. +xyz of 0.6.1.dev4+gdf99fe2)
-    to be able to upload to TestPyPI"""
+    to be able to upload to Test PyPI"""
     return ""
 
 
@@ -42,6 +42,7 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3 :: Only",
         "Programming Language :: Python :: Implementation :: CPython",
         "Topic :: Artistic Software",

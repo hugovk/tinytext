@@ -7,6 +7,8 @@ cache:
 before_cache:
   - rm -f $HOME/.cache/pip/log/debug.log
   - rm -f $HOME/.cache/pre-commit/pre-commit.log
+  - ls -lR $HOME/.cache/pip/
+  - ls -lR $HOME/.cache/pre-commit/
 
 matrix:
   fast_finish: true
@@ -19,8 +21,8 @@ matrix:
 
 before_install:
   - |
-    find $HOME/.cache/pip/
-    find $HOME/.cache/pre-commit/
+    ls -lR $HOME/.cache/pip/
+    ls -lR $HOME/.cache/pre-commit/
 
 install:
   - pip install -U pip
@@ -31,8 +33,8 @@ script:
 
 after_script:
   - |
-    find $HOME/.cache/pip/
-    find $HOME/.cache/pre-commit/
+    ls -lR $HOME/.cache/pip/
+    ls -lR $HOME/.cache/pre-commit/
 
 after_success:
   - |

@@ -12,6 +12,18 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
+      - name: pip cache
+        uses: actions/cache@preview
+        with:
+          path: ~/.cache/pip
+          key: lint-${{ matrix.python-version }}-pip
+
+      - name: pre-commit cache
+        uses: actions/cache@preview
+        with:
+          path: ~/.cache/pre-commit
+          key: lint-${{ matrix.python-version }}-pre-commit
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v1
         with:

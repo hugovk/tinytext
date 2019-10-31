@@ -18,7 +18,13 @@ jobs:
         if: startsWith(matrix.os, 'ubuntu')
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip
+          key: ${{ matrix.os }}-${{ matrix.python-version }}-pip
+
+      - uses: actions/cache@preview
+        if: startsWith(matrix.os, 'macOS')
+        with:
+          path: ~/Library/Caches/pip
+          key: ${{ matrix.os }}-${{ matrix.python-version }}-pip
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v1

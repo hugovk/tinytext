@@ -9,6 +9,7 @@ repos:
     rev: 19.10b0
     hooks:
       - id: black
+        args: ["--target-version", "py36"]
         # override until resolved: https://github.com/psf/black/issues/402
         files: \.pyi?$
         types: []

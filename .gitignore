@@ -60,3 +60,6 @@ docs/_build/
 target/
 
 node_modules/
+
+# pyenv
+.python-version

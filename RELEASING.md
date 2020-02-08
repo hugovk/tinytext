@@ -16,9 +16,7 @@ git tag -a 2.1.0 -m "Release 2.1.0"
 git push --tags
 ```
 
-- [ ] Create new GitHub release: https://github.com/hugovk/tinytext/releases/new
-
-  - Tag: Pick existing tag "2.1.0"
+- [ ] Edit new GitHub release: https://github.com/hugovk/tinytext/releases
 
 - [ ] Check the tagged [Travis CI build](https://travis-ci.org/hugovk/tinytext) has
       deployed to [PyPI](https://pypi.org/project/tinytext/#history)

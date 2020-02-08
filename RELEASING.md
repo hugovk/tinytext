@@ -1,8 +1,11 @@
 # Release Checklist
 
 - [ ] Get master to the appropriate code release state.
-      [Travis CI](https://travis-ci.org/hugovk/tinytext) should be running cleanly for
-      all merges to master.
+      [Travis CI](https://travis-ci.org/hugovk/tinytext) and
+      [GitHub Actions](https://github.com/hugovk/tinytext/actions) should be running
+      cleanly for all merges to master.
+      [![Build Status](https://travis-ci.org/hugovk/tinytext.svg?branch=master)](https://travis-ci.org/hugovk/tinytext)
+      [![GitHub Actions status](https://github.com/hugovk/tinytext/workflows/Test/badge.svg)](https://github.com/hugovk/tinytext/actions)
 
 - [ ] Tag with the version number:
 

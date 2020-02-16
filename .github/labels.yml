@@ -43,6 +43,9 @@
 - color: 045aa0
   name: Security
   description: "Changelog: in case of vulnerabilities"
+- color: fbca04
+  name: skip-changelog
+  description: "Exclude PR from release draft"
 
 # Other labels
 - color: fbca04

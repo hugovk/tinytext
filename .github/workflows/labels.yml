@@ -5,6 +5,7 @@ on:
       - master
     paths:
       - .github/workflows/labels.yml
+jobs:
   build:
     runs-on: ubuntu-latest
     steps:

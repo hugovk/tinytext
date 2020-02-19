@@ -25,6 +25,7 @@
   description: "This will not be worked on"
 
 # Keep a Changelog labels
+# https://keepachangelog.com/en/1.0.0/
 - color: 0e8a16
   name: "changelog: Added"
   description: "Changelog: for new features"

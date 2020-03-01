@@ -7,6 +7,7 @@ on:
 
 jobs:
   build:
+    if: github.repository == 'hugovk/tinytext'
     runs-on: ubuntu-18.04
 
     steps:

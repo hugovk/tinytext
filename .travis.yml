@@ -26,28 +26,3 @@ after_success:
     if [ "$TOXENV" != "lint" ]; then
       pip install -U codecov && codecov
     fi
-
-deploy:
-  - provider: pypi
-    server: https://test.pypi.org/legacy/
-    on:
-      tags: false
-      repo: hugovk/tinytext
-      branch: master
-      condition: $TOXENV = lint
-    user: __token__
-    password:
-      secure: "S6IxZb3YyapFKhkcXpCZqDAD0a5jZ+vLK7HDKBdgvXmgs1S9rcDOyMrKU4qyjAij4Xlg8GQPFU74W5Vd1JBhjC/6Jns1V+PHrlDTg0C/wiH5idiVUrTCaqyt5eqsq+EORGZV6hYZEpA4Uyz9gdCUuhIl6zjFX0nBhSV2sOULZhqBZb6Ug0CdxahOQVcZOhrNoxsM1UrxdRFz0WITj2V4VF60v3GRkdBOeIXT0UvJ44oHt95/BFdQPMiaZj3YcADZc9Mym2PbKL2/cX1/RSdg0mO74Wp1+OLXAApuVDGFeFgji+zrEJBHR9FoWRuxkLt22POcE5zmcaz7DLD731WG/DtUY9D6RproCqxzbielS5+8+YpLUooH98sc2L77OgKDwuLejskbfF8H9iMdkpAtiWPwLM2SljvNJ05+R98V+IPezarO1vYSAmWx+OB7Li0J4078ML61reV/NhIPsRj2g7Norl7AYWtUEu7WelUDjvx5p/VqYlcyNKpYgtm+iznWa5FYmTNYei7AIe2aYuoDS61mzGUJT6OLkqkIwdIn1p/RY5nCeOJioGJ65fo8pzpCUVkXjcJoNoBEL5VMtFg3Oe5ksS1SY+aw7JqYVeDs8xFjO6XQEUfaLb0lKsjZRMerhCqKkjpkD26SMmBY9x3B4PTPqqK1eKC1lqM4KvZMy7M="
-    distributions: sdist --format=gztar bdist_wheel
-    skip_existing: true
-  - provider: pypi
-    on:
-      tags: true
-      repo: hugovk/tinytext
-      branch: master
-      condition: $TOXENV = lint
-    user: __token__
-    password:
-      secure: "JXDLPaITuxdYaTnreYBKwPpTMsI9KKBrRYTOt6NFmZAfWFt3ld4Y0W2BgsV5WEzHRxD7pNSJST2wjzJS1iq/po3YBdR1JpQXLEHgQ7EZg6/yajt9U0D7WbphnkPy//ZB4SfW5rLiUhgBZETLv6KR/3TTY6oXKOc0Iamj4i0Uf75QDzH/U/okB6B77gFsQ5Fyj1zHGA7F3JWy4F+s4WGHsGRi8M+pcrHxLgtwjgOg+s9i63MEBagSPoUksI/j0GBY93SUGu6lx4nkRPj4l1M/fD6VgINPtCW0KkiGmenddmCDccoeuqRr9jVwdMLtwKdeaZF4T726JVxZSgTFGmgirvkEaWi0coFFnd58qaGCyRiwCT2P9Q0y+1IsQL2qhbVBJ0+QrTA0Z3xCa0NykbLN0lJ205llMwEcwLLC8kJkGyhzXisSBT33Roc0ix14TMDRv+6QGWD905wSlYJWZTaOiE6NffiOjv93ZL4hVQvi1BlXPhyNQwb9UDcdNKK11i/UpBszjqPlbgSU76OSbyFms/OPqjzpOhmRWVLm5+qWRDFuTni8mv/TLErpbEcckPaycuKhP13ZEuRfeIIXQWvSmUDE0dp+4uVAbRNxHzvHACSeHrfMD9YSqvRUo+LSxcsKlp23jAkbNZGmYJ1Ep/oyLw9Xdnk+7f0Bb6xVD9z+JyU="
-    distributions: sdist --format=gztar bdist_wheel
-    skip_existing: true

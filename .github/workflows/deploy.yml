@@ -32,7 +32,7 @@ jobs:
           twine check dist/*
 
       - name: Publish package to PyPI
-        if: startsWith(github.event.ref, 'refs/tags')
+        if: github.event.action == 'published'
         uses: pypa/gh-action-pypi-publish@master
         with:
           user: __token__

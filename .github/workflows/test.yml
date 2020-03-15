@@ -12,12 +12,9 @@ jobs:
         os: [ubuntu-18.04, ubuntu-16.04, macos-latest]
         include:
           # Include new variables for Codecov
-          - os: ubuntu-18.04
-            codecov-flag: GHA_Ubuntu1804
-          - os: ubuntu-16.04
-            codecov-flag: GHA_Ubuntu1604
-          - os: macos-latest
-            codecov-flag: GHA_macOS
+          - { codecov-flag: GHA_Ubuntu1804, os: ubuntu-18.04 }
+          - { codecov-flag: GHA_Ubuntu1604, os: ubuntu-16.04 }
+          - { codecov-flag: GHA_macOS, os: macos-latest }
         exclude:
           - { python-version: 3.9, os: ubuntu-16.04 }
           - { python-version: 3.9, os: macos-latest }

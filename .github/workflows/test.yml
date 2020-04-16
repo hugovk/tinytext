@@ -35,7 +35,7 @@ jobs:
 
       - name: macOS cache
         uses: actions/cache@v1
-        if: startsWith(matrix.os, 'macOS')
+        if: startsWith(matrix.os, 'macos')
         with:
           path: ~/Library/Caches/pip
           key:

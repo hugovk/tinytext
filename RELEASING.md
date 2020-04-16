@@ -7,8 +7,6 @@
       [![Build Status](https://travis-ci.org/hugovk/tinytext.svg?branch=master)](https://travis-ci.org/hugovk/tinytext)
       [![GitHub Actions status](https://github.com/hugovk/tinytext/workflows/Test/badge.svg)](https://github.com/hugovk/tinytext/actions)
 
-TODO
-
 - [ ] Edit release draft, adjust text if needed:
       https://github.com/hugovk/tinytext/releases
 
@@ -23,5 +21,5 @@ TODO
 - [ ] Check installation:
 
 ```bash
-pip3 uninstall -y tinytext && pip3 install -U tinytext
+pip3 uninstall -y tinytext && pip3 install -U tinytext && tinytext --version
 ```

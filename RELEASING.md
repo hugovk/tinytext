@@ -7,22 +7,18 @@
       [![Build Status](https://travis-ci.org/hugovk/tinytext.svg?branch=master)](https://travis-ci.org/hugovk/tinytext)
       [![GitHub Actions status](https://github.com/hugovk/tinytext/workflows/Test/badge.svg)](https://github.com/hugovk/tinytext/actions)
 
-- [ ] Tag with the version number:
+TODO
 
-```bash
-git tag -a 2.1.0 -m "Release 2.1.0"
-```
+- [ ] Edit release draft, adjust text if needed:
+      https://github.com/hugovk/tinytext/releases
 
-- [ ] Push tag:
+- [ ] Check next tag is correct, amend if needed
 
-```bash
-git push --tags
-```
+- [ ] Publish release
 
-- [ ] Edit new GitHub release: https://github.com/hugovk/tinytext/releases
-
-- [ ] Check the tagged [Travis CI build](https://travis-ci.org/hugovk/tinytext) has
-      deployed to [PyPI](https://pypi.org/project/tinytext/#history)
+- [ ] Check the tagged
+      [GitHub Actions build](https://github.com/hugovk/tinytext/actions?query=workflow%3ADeploy)
+      has deployed to [PyPI](https://pypi.org/project/tinytext/#history)
 
 - [ ] Check installation:
 

@@ -11,6 +11,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - run: |
+          git fetch --prune --unshallow
 
       - name: pip cache
         uses: actions/cache@v1
@@ -40,3 +42,8 @@ jobs:
 
       - name: Lint
         run: tox -e lint
+
+      - name: Check version
+        run: |
+          python setup.py --version
+          [ `python setup.py --version` != "0.0.0" ]

@@ -27,5 +27,5 @@ git push --tags
 - [ ] Check installation:
 
 ```bash
-pip3 uninstall -y tinytext && pip3 install -U tinytext
+pip3 uninstall -y tinytext && pip3 install -U tinytext && tinytext --version
 ```

@@ -24,6 +24,7 @@ setup(
     package_dir={"": "src"},
     entry_points={"console_scripts": ["tinytext = tinytext.cli:main"]},
     zip_safe=True,
+    setup_requires=["setuptools_scm"],
     extras_require={"tests": ["hypothesis-auto", "pytest", "pytest-cov"]},
     python_requires=">=3.6",
     classifiers=[

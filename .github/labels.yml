@@ -52,6 +52,9 @@
 - color: 2d18b2
   description: "To automatically merge PRs that are ready"
   name: automerge
+- color: 0366d6
+  description: "For dependencies"
+  name: dependencies
 - color: fbca04
   description: "Unit tests, linting, CI, etc."
   name: testing

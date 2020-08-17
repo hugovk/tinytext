@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Python ${{ matrix.python }} (deadsnakes)
+      - name: Set up Python ${{ matrix.python-version }} (deadsnakes)
         uses: deadsnakes/action@v1.0.0
         if: endsWith(matrix.python-version, '-dev')
         with:

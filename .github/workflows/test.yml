@@ -38,11 +38,10 @@ jobs:
       - name: Get pip cache dir
         id: pip-cache
         run: |
-          python -m pip install -U "pip>=20.1"
           echo "::set-output name=dir::$(pip cache dir)"
 
-      - name: pip cache
-        uses: actions/cache@v1
+      - name: Cache
+        uses: actions/cache@v2
         with:
           path: ${{ steps.pip-cache.outputs.dir }}
           key:
@@ -53,9 +52,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          python -m pip install --upgrade wheel
-          python -m pip install --upgrade tox
+          python -m pip install -U pip
+          python -m pip install -U wheel
+          python -m pip install -U tox
 
       - name: Tox tests
         shell: bash

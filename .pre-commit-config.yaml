@@ -6,7 +6,7 @@ repos:
         args: ["--py36-plus"]
 
   - repo: https://github.com/psf/black
-    rev: 19.10b0
+    rev: 20.8b1
     hooks:
       - id: black
         args: ["--target-version", "py36"]
@@ -43,7 +43,7 @@ repos:
       - id: mypy
 
   - repo: https://github.com/prettier/prettier
-    rev: 2.0.5
+    rev: 2.1.1
     hooks:
       - id: prettier
         args: [--prose-wrap=always, --print-width=88]

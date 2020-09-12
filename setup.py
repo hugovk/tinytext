@@ -15,7 +15,7 @@ setup(
     description="A helpful converter to change any normal text into cuter tinier text",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    author="hugovk",
+    author="Hugo van Kemenade",
     url="https://github.com/hugovk/tinytext",
     license="MIT",
     keywords=[

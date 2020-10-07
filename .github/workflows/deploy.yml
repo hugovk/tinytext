@@ -18,16 +18,16 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: pip cache
-        uses: actions/cache@v1
+      - name: Cache
+        uses: actions/cache@v2
         with:
           path: ~/.cache/pip
-          key: deploy-pip-${{ hashFiles('**/setup.py') }}
+          key: deploy-${{ hashFiles('**/setup.py') }}
           restore-keys: |
-            deploy-pip-
+            deploy-
 
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v1
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
           python-version: 3.8
 

@@ -42,10 +42,11 @@ repos:
     hooks:
       - id: mypy
 
-  - repo: https://github.com/tox-dev/tox-ini-fmt
-    rev: 0.5.0
-    hooks:
-      - id: tox-ini-fmt
+  # Skip whilst it strips comments
+  #  - repo: https://github.com/tox-dev/tox-ini-fmt
+  #    rev: 0.5.0
+  #    hooks:
+  #      - id: tox-ini-fmt
 
   - repo: https://github.com/prettier/prettier
     rev: 2.1.2

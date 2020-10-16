@@ -26,3 +26,17 @@ template: |
   ## Changes
 
   $CHANGES
+
+version-resolver:
+  major:
+    labels:
+      - "changelog: Removed"
+  minor:
+    labels:
+      - "changelog: Added"
+      - "changelog: Changed"
+      - "changelog: Deprecated"
+  patch:
+    labels:
+      - "changelog: Fixed"
+  default: minor

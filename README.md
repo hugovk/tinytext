@@ -3,7 +3,7 @@
 [![PyPI version](https://img.shields.io/pypi/v/tinytext.svg?logo=pypi&logoColor=FFE873)](https://pypi.org/project/tinytext)
 [![Supported Python versions](https://img.shields.io/pypi/pyversions/tinytext.svg?logo=python&logoColor=FFE873)](https://pypi.org/project/tinytext)
 [![PyPI downloads](https://img.shields.io/pypi/dm/tinytext.svg)](https://pypistats.org/packages/tinytext)
-[![Travis CI status](https://img.shields.io/travis/hugovk/tinytext/master?label=Travis%20CI&logo=travis)](https://travis-ci.org/hugovk/tinytext)
+[![Travis CI status](https://img.shields.io/travis/com/hugovk/tinytext/master?label=Travis%20CI&logo=travis)](https://travis-ci.com/hugovk/tinytext)
 [![GitHub Actions status](https://github.com/hugovk/tinytext/workflows/Test/badge.svg)](https://github.com/hugovk/tinytext/actions)
 [![codecov](https://codecov.io/gh/hugovk/tinytext/branch/master/graph/badge.svg)](https://codecov.io/gh/hugovk/tinytext)
 [![GitHub](https://img.shields.io/github/license/hugovk/tinytext.svg)](LICENSE.txt)

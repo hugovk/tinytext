@@ -1,5 +1,5 @@
-name-template: "Release $NEXT_PATCH_VERSION"
-tag-template: "$NEXT_PATCH_VERSION"
+name-template: "Release $RESOLVED_VERSION"
+tag-template: "$RESOLVED_VERSION"
 
 categories:
   - title: "Added"

@@ -34,6 +34,9 @@ setup(
     setup_requires=["setuptools_scm"],
     extras_require={"tests": ["hypothesis-auto", "pytest", "pytest-cov"]},
     python_requires=">=3.6",
+    project_urls={
+        "Source": "https://github.com/hugovk/tinytext",
+    },
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
@@ -46,6 +49,7 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3 :: Only",
         "Programming Language :: Python :: Implementation :: CPython",
+        "Programming Language :: Python :: Implementation :: PyPy",
         "Topic :: Artistic Software",
         "Topic :: Text Processing",
     ],

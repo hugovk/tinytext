@@ -36,7 +36,10 @@ version-resolver:
       - "changelog: Added"
       - "changelog: Changed"
       - "changelog: Deprecated"
+      - "enhancement"
+
   patch:
     labels:
       - "changelog: Fixed"
+      - "bug"
   default: minor

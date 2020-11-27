@@ -6,6 +6,7 @@
 [![GitHub Actions status](https://github.com/hugovk/tinytext/workflows/Test/badge.svg)](https://github.com/hugovk/tinytext/actions)
 [![codecov](https://codecov.io/gh/hugovk/tinytext/branch/master/graph/badge.svg)](https://codecov.io/gh/hugovk/tinytext)
 [![GitHub](https://img.shields.io/github/license/hugovk/tinytext.svg)](LICENSE.txt)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4071428.svg)](https://doi.org/10.5281/zenodo.4071428)
 [![Code style: Black](https://img.shields.io/badge/code%20style-Black-000000.svg)](https://github.com/psf/black)
 
 Convert your text ᶦᶰᵗᵒ ᵗᶦᶰᶦᵉʳ ᵗᵉˣᵗ

@@ -1,0 +1,26 @@
+{
+  "title": "tinytext",
+  "description": "A helpful converter to change any normal text into cuter tinier text",
+  "creators": [
+    {
+      "affiliation": "Independent (Non-affiliated)",
+      "name": "van Kemenade, Hugo",
+      "orcid": "0000-0001-5715-8632"
+    }
+  ],
+  "resource_type": {
+    "type": "software"
+  },
+  "license": {
+    "id": "MIT"
+  },
+  "access_right": "open",
+  "keywords": [
+    "botally",
+    "tiny type",
+    "tiny type",
+    "tiny text",
+    "cute text",
+    "generator"
+  ]
+}

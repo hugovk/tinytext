@@ -62,3 +62,11 @@ jobs:
         with:
           flags: ${{ matrix.codecov-flag }}
           name: ${{ matrix.os }} Python ${{ matrix.python-version }}
+
+  success:
+    needs: build
+    runs-on: ubuntu-latest
+    name: Test Successful
+    steps:
+      - name: Success
+        run: echo Test Successful

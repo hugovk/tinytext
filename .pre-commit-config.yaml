@@ -1,12 +1,12 @@
 repos:
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.12.0
+    rev: v2.14.0
     hooks:
       - id: pyupgrade
         args: ["--py36-plus"]
 
   - repo: https://github.com/psf/black
-    rev: 20.8b1
+    rev: 21.5b0
     hooks:
       - id: black
         args: ["--target-version", "py36"]
@@ -20,7 +20,7 @@ repos:
       - id: isort
 
   - repo: https://github.com/PyCQA/flake8
-    rev: 3.9.0
+    rev: 3.9.1
     hooks:
       - id: flake8
         additional_dependencies: [flake8-2020, flake8-implicit-str-concat]
@@ -39,6 +39,11 @@ repos:
       - id: check-yaml
       - id: end-of-file-fixer
       - id: trailing-whitespace
+
+  - repo: https://github.com/asottile/setup-cfg-fmt
+    rev: v1.17.0
+    hooks:
+      - id: setup-cfg-fmt
 
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v0.812

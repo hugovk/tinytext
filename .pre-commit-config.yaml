@@ -61,3 +61,6 @@ repos:
     hooks:
       - id: prettier
         args: [--prose-wrap=always, --print-width=88]
+
+ci:
+  autoupdate_schedule: monthly

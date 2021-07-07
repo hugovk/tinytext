@@ -49,6 +49,7 @@ repos:
     rev: v0.910
     hooks:
       - id: mypy
+        additional_dependencies: [types-setuptools]
 
   # Skip whilst it strips comments
   #  - repo: https://github.com/tox-dev/tox-ini-fmt

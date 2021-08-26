@@ -3,13 +3,13 @@ name: Deploy
 on:
   push:
     branches:
-      - master
+      - main
   release:
     types:
       - published
 
 jobs:
-  build:
+  deploy:
     if: github.repository == 'hugovk/tinytext'
     runs-on: ubuntu-20.04
 

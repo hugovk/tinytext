@@ -9,7 +9,7 @@ on:
       - published
 
 jobs:
-  build:
+  deploy:
     if: github.repository == 'hugovk/tinytext'
     runs-on: ubuntu-20.04
 

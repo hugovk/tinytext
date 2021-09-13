@@ -10,7 +10,7 @@ on:
 
 jobs:
   deploy:
-    if: github.repository == 'hugovk/tinytext'
+    if: github.repository_owner == 'hugovk'
     runs-on: ubuntu-20.04
 
     steps:

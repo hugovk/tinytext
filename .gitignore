@@ -64,3 +64,6 @@ node_modules/
 
 # pyenv
 .python-version
+
+# setuptools_scm
+_version.py

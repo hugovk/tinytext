@@ -1,9 +1,6 @@
 from typing import Dict
 
-import pkg_resources
-
-__version__: str = pkg_resources.get_distribution(__name__).version
-
+from ._version import version as __version__  # noqa: F401
 
 tiny_letters: Dict[int, str] = {
     ord("a"): "ᵃ",

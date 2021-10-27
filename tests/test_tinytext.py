@@ -1,13 +1,13 @@
-from hypothesis_auto import auto_pytest_magic
+from hypothesis_auto import auto_pytest_magic  # type: ignore[import]
 
 import tinytext
 
 
-def test_something():
+def test_something() -> None:
     # Arrange
 
     # Act
-    tiny = tinytext.tinytext("into tinier text")
+    tiny: str = tinytext.tinytext("into tinier text")
 
     # Assert
     assert tiny == "ᶦᶰᵗᵒ ᵗᶦᶰᶦᵉʳ ᵗᵉˣᵗ"

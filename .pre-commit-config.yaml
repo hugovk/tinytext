@@ -1,21 +1,18 @@
 repos:
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.29.0
+    rev: v2.29.1
     hooks:
       - id: pyupgrade
-        args: ["--py36-plus"]
+        args: [--py37-plus]
 
   - repo: https://github.com/psf/black
-    rev: 21.10b0
+    rev: 21.11b1
     hooks:
       - id: black
-        args: ["--target-version", "py36"]
-        # override until resolved: https://github.com/psf/black/issues/402
-        files: \.pyi?$
-        types: []
+        args: [--target-version=py37]
 
   - repo: https://github.com/PyCQA/isort
-    rev: 5.10.0
+    rev: 5.10.1
     hooks:
       - id: isort
 
@@ -41,7 +38,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/asottile/setup-cfg-fmt
-    rev: v1.19.0
+    rev: v1.20.0
     hooks:
       - id: setup-cfg-fmt
 

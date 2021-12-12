@@ -8,8 +8,5 @@ def local_scheme(version: str) -> str:
 
 
 setup(
-    use_scm_version={
-        "local_scheme": local_scheme,
-        "write_to": "src/tinytext/_version.py",
-    },
+    use_scm_version={"local_scheme": local_scheme},
 )

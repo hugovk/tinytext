@@ -3,3 +3,6 @@ target_version = ["py37"]
 
 [tool.isort]
 profile = "black"
+
+[tool.mypy]
+strict = true

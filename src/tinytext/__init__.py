@@ -1,8 +1,18 @@
-from typing import Dict
+from __future__ import annotations
 
-from ._version import version as __version__  # noqa: F401
+try:
+    # Python 3.8+
+    import importlib.metadata as importlib_metadata
+except ImportError:
+    # Python 3.7 and lower
+    import importlib_metadata  # type: ignore
 
-tiny_letters: Dict[int, str] = {
+__version__ = importlib_metadata.version(__name__)
+
+
+__all__ = ["__version__"]
+
+tiny_letters: dict[int, str] = {
     ord("a"): "ᵃ",
     ord("b"): "ᵇ",
     ord("c"): "ᶜ",
@@ -83,7 +93,7 @@ tiny_letters: Dict[int, str] = {
 
 def tinytext(big: str) -> str:
     """convert your text ᶦᶰᵗᵒ ᵗᶦᶰᶦᵉʳ ᵗᵉˣᵗ"""
-    tiny = big.translate(tiny_letters)
+    tiny: str = big.translate(tiny_letters)
     return tiny
 
 

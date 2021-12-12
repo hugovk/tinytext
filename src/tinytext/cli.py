@@ -4,18 +4,19 @@ CLI for tinytext
 """
 import argparse
 
-import tinytext
+from . import __version__ as __version__
+from . import tinytext
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("text", help="Text to tinify")
     parser.add_argument(
-        "-V", "--version", action="version", version=f"%(prog)s {tinytext.__version__}"
+        "-V", "--version", action="version", version=f"%(prog)s {__version__}"
     )
     args = parser.parse_args()
 
-    print(tinytext.tinytext(args.text))
+    print(tinytext(args.text))
 
 
 if __name__ == "__main__":

@@ -49,9 +49,6 @@
   name: "changelog: skip"
 
 # Other labels
-- color: 2d18b2
-  description: "To automatically merge PRs that are ready"
-  name: automerge
 - color: 0366d6
   description: "For dependencies"
   name: dependencies

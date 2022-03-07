@@ -7,14 +7,19 @@ updates:
       time: "03:00"
     open-pull-requests-limit: 10
     labels:
-      - dependencies
       - "changelog: skip"
+      - "dependencies"
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
-      interval: monthly
-      time: "03:00"
+      interval: daily
+      time: "16:55"
     open-pull-requests-limit: 10
     labels:
       - "changelog: skip"
-      - dependencies
+      - "dependencies"
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-minor"
+          - "version-update:semver-patch"

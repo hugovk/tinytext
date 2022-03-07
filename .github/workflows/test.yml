@@ -19,7 +19,7 @@ jobs:
           - { codecov-flag: GHA_macOS, os: macos-latest }
 
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3

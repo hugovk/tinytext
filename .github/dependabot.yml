@@ -1,14 +1,5 @@
 version: 2
 updates:
-  - package-ecosystem: pip
-    directory: "/"
-    schedule:
-      interval: daily
-      time: "03:00"
-    open-pull-requests-limit: 10
-    labels:
-      - "changelog: skip"
-      - "dependencies"
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
@@ -23,3 +14,12 @@ updates:
         update-types:
           - "version-update:semver-minor"
           - "version-update:semver-patch"
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "03:00"
+    open-pull-requests-limit: 10
+    labels:
+      - "changelog: skip"
+      - "dependencies"

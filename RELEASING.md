@@ -13,7 +13,7 @@
 - [ ] Publish release
 
 - [ ] Check the tagged
-      [GitHub Actions build](https://github.com/hugovk/tinytext/actions?query=workflow%3ADeploy)
+      [GitHub Actions build](https://github.com/hugovk/tinytext/actions/workflows/deploy.yml)
       has deployed to [PyPI](https://pypi.org/project/tinytext/#history)
 
 - [ ] Check installation:

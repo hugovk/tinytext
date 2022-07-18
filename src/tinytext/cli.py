@@ -2,6 +2,8 @@
 """
 CLI for tinytext
 """
+from __future__ import annotations
+
 import argparse
 
 from . import __version__ as __version__

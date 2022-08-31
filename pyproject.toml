@@ -12,3 +12,6 @@ strict = true
 
 [tool.pytest.ini_options]
 addopts = "-W error::DeprecationWarning"
+
+[tool.setuptools_scm]
+local_scheme = "no-local-version"

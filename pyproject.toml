@@ -1,9 +1,6 @@
 [tool.black]
 target_version = ["py37"]
 
-[tool.flake8]
-max_line_length = "88"
-
 [tool.isort]
 profile = "black"
 

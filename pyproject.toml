@@ -58,6 +58,12 @@ Source = "https://github.com/hugovk/tinytext"
 tinytext = "tinytext.cli:main"
 
 
+[tool.black]
+target_version = ["py37"]
+
+[tool.isort]
+profile = "black"
+
 [tool.setuptools]
 package-dir = {"" = "src"}
 zip-safe = true

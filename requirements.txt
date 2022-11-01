@@ -1,4 +1,4 @@
 # Only for testing pinned versions on the CI
 hypothesis-auto==1.1.4
-pytest==7.1.3
+pytest==7.2.0
 pytest-cov==4.0.0

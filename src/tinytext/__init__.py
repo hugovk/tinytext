@@ -12,6 +12,39 @@ __version__ = importlib_metadata.version(__name__)
 
 __all__ = ["__version__"]
 
+
+class Color:
+    colors = {
+        "black": "30",
+        "red": "31",
+        "green": "32",
+        "yellow": "33",
+        "blue": "34",
+        "magenta": "35",
+        "cyan": "36",
+        "white": "37",
+    }
+
+
+ENDLINE = "\x1b[0m\x1b[37m"
+
+
+class TextColor:
+    def __init__(self, text: str, new_color=Color.colors["white"]) -> None:
+        self._text_color = f"\x1b[{new_color}m" + text + ENDLINE
+
+    def __str__(self) -> str:
+        return f"{self._text_color}"
+
+    @property
+    def change_color(self) -> str:
+        return self._text_color
+
+    @change_color.setter
+    def change_color(self, new_color=Color.colors["white"]) -> None:
+        self._text_color = f"\x1b[{new_color}m" + self._text_color[5:-9] + ENDLINE
+
+
 tiny_letters: dict[int, str] = {
     ord("a"): "ᵃ",
     ord("b"): "ᵇ",
@@ -97,4 +130,16 @@ def tinytext(big: str) -> str:
     return tiny
 
 
+def colored_tinytext(big: str, new_color: str = "") -> str:
+    """convert your text ᶦᶰᵗᵒ ᵗᶦᶰᶦᵉʳ ᵗᵉˣᵗ with color"""
+    tiny: str = big.translate(tiny_letters)
+    try:
+        color_tiny: str = TextColor(tiny, Color.colors[new_color])
+    except KeyError:
+        print('Color not changed')
+        color_tiny: str = TextColor(tiny)
+    return color_tiny
+
+
 # End of file
+# print(colored_tinytext('HI','red'))

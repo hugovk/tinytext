@@ -136,7 +136,7 @@ def colored_tinytext(big: str, new_color: str = "") -> str:
     try:
         color_tiny: str = TextColor(tiny, Color.colors[new_color])
     except KeyError:
-        print('Color not changed')
+        print("Color not changed")
         color_tiny: str = TextColor(tiny)
     return color_tiny
 

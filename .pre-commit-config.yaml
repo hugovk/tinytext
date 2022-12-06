@@ -27,6 +27,7 @@ repos:
     rev: v1.9.0
     hooks:
       - id: python-check-blanket-noqa
+      - id: python-no-log-warn
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.3.0

@@ -39,7 +39,7 @@ jobs:
 
       - name: Tox tests
         run: |
-          tox -e py
+          tox -e py37,py311,py312
 
       - name: Upload coverage
         uses: codecov/codecov-action@v3

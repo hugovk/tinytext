@@ -11,7 +11,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["pypy3.8", "3.7", "3.8", "3.9", "3.10", "3.11", "3.12-dev"]
         os: [macos-latest, ubuntu-latest]
 
     steps:
@@ -20,7 +19,15 @@ jobs:
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: |
+            "pypy3.8"
+            "3.7"
+            "3.8"
+            "3.9"
+            "3.10"
+            "3.11"
+            "3.12-dev"
+
           cache: pip
           cache-dependency-path: pyproject.toml
 

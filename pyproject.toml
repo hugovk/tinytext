@@ -19,12 +19,6 @@ keywords = [
 license = {text = "MIT"}
 authors = [{name = "Hugo van Kemenade"}]
 requires-python = ">=3.7"
-dependencies = [
-  'importlib-metadata; python_version < "3.8"',
-]
-dynamic = [
-  "version",
-]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
@@ -42,6 +36,12 @@ classifiers = [
     "Topic :: Artistic Software",
     "Topic :: Text Processing",
 ]
+dynamic = [
+  "version",
+]
+dependencies = [
+  'importlib-metadata; python_version < "3.8"',
+]
 [project.optional-dependencies]
 tests = [
   "hypothesis-auto",
@@ -57,9 +57,6 @@ Source = "https://github.com/hugovk/tinytext"
 [project.scripts]
 tinytext = "tinytext.cli:main"
 
-
-[tool.black]
-target_version = ["py37"]
 
 [tool.hatch]
 version.source = "vcs"

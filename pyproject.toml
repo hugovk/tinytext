@@ -58,9 +58,6 @@ Source = "https://github.com/hugovk/tinytext"
 tinytext = "tinytext.cli:main"
 
 
-[tool.black]
-target_version = ["py37"]
-
 [tool.hatch]
 version.source = "vcs"
 

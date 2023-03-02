@@ -11,5 +11,5 @@ exclude_lines =
 
 [run]
 omit =
-    src/tinytext/__main__.py
-    src/tinytext/cli.py
+    **/tinytext/__main__.py
+    **/tinytext/cli.py

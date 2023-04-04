@@ -48,15 +48,12 @@ tests = [
   "pytest",
   "pytest-cov",
 ]
-
 [project.urls]
 Changelog = "https://github.com/hugovk/tinytext/releases"
 Homepage = "https://github.com/hugovk/tinytext"
 Source = "https://github.com/hugovk/tinytext"
-
 [project.scripts]
 tinytext = "tinytext.cli:main"
-
 
 [tool.hatch]
 version.source = "vcs"

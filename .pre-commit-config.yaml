@@ -6,7 +6,7 @@ repos:
         args: [--py38-plus]
 
   - repo: https://github.com/psf/black-pre-commit-mirror
-    rev: 23.9.1
+    rev: 23.10.1
     hooks:
       - id: black
 
@@ -32,7 +32,6 @@ repos:
     rev: v4.5.0
     hooks:
       - id: check-case-conflict
-      - id: check-executables-have-shebangs
       - id: check-merge-conflict
       - id: check-json
       - id: check-toml
@@ -42,7 +41,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.6.0
+    rev: v1.6.1
     hooks:
       - id: mypy
         args: [--strict, --pretty, --show-error-codes]
@@ -68,6 +67,11 @@ repos:
     hooks:
       - id: prettier
         args: [--prose-wrap=always, --print-width=88]
+
+  - repo: meta
+    hooks:
+      - id: check-hooks-apply
+      - id: check-useless-excludes
 
 ci:
   autoupdate_schedule: quarterly

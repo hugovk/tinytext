@@ -59,6 +59,7 @@ local_scheme = "no-local-version"
 
 [tool.ruff]
 select = [
+  "C4", # flake8-comprehensions
   "E", # pycodestyle errors
   "EM", # flake8-errmsg
   "F", # pyflakes errors
@@ -79,4 +80,5 @@ extend-ignore = [
 ]
 
 [tool.ruff.isort]
+known-first-party = ["tinytext"]
 required-imports = ["from __future__ import annotations"]

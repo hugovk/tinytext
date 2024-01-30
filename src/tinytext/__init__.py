@@ -1,6 +1,6 @@
-from __future__ import annotations
-
+"""Module docstring."""
 import importlib.metadata
+import typing
 
 __version__ = importlib.metadata.version(__name__)
 

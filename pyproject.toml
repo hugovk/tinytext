@@ -57,7 +57,7 @@ version.source = "vcs"
 [tool.hatch.version.raw-options]
 local_scheme = "no-local-version"
 
-[tool.ruff]
+[tool.ruff.lint]
 select = [
   "C4", # flake8-comprehensions
   "E", # pycodestyle errors
@@ -65,12 +65,12 @@ select = [
   "F", # pyflakes errors
   "I", # isort
   "ISC", # flake8-implicit-str-concat
+  "LOG", # flake8-logging
   "PGH", # pygrep-hooks
   "RUF100", # unused noqa (yesqa)
   "UP", # pyupgrade
   "W", # pycodestyle warnings
   "YTT", # flake8-2020
-  # "LOG", # TODO: enable flake8-logging when it's not in preview anymore
 ]
 extend-ignore = [
   "E203", # Whitespace before ':'
@@ -79,6 +79,6 @@ extend-ignore = [
   "E241", # Multiple spaces after ','
 ]
 
-[tool.ruff.isort]
+[tool.ruff.lint.isort]
 known-first-party = ["tinytext"]
 required-imports = ["from __future__ import annotations"]

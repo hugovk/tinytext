@@ -32,7 +32,7 @@ jobs:
 
       - name: Tox tests
         run: |
-          python -m tox -e py
+          python -m tox -e py -vvv
 
       - name: Test CLI
         run: |

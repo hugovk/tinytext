@@ -85,3 +85,8 @@ extend-ignore = [
 [tool.ruff.lint.isort]
 known-first-party = ["tinytext"]
 required-imports = ["from __future__ import annotations"]
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "ignore:sys.monitoring isn't available, using default core:coverage.exceptions.CoverageWarning",
+]

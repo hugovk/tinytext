@@ -88,5 +88,6 @@ required-imports = ["from __future__ import annotations"]
 
 [tool.pytest.ini_options]
 filterwarnings = [
-    "ignore:sys.monitoring isn't available, using default core:coverage.exceptions.CoverageWarning",
+  # Python <= 3.11
+  "ignore:sys.monitoring isn't available, using default core:coverage.exceptions.CoverageWarning",
 ]

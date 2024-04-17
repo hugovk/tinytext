@@ -31,6 +31,11 @@ repos:
       - id: check-github-workflows
       - id: check-renovate
 
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.6.27
+    hooks:
+      - id: actionlint
+
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.9.0
     hooks:

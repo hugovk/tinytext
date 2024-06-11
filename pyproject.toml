@@ -62,26 +62,35 @@ fix = true
 
 [tool.ruff.lint]
 select = [
-  "C4", # flake8-comprehensions
-  "E", # pycodestyle errors
-  "EM", # flake8-errmsg
-  "F", # pyflakes errors
-  "I", # isort
-  "ISC", # flake8-implicit-str-concat
-  "LOG", # flake8-logging
-  "PGH", # pygrep-hooks
+  "C4",     # flake8-comprehensions
+  "E",      # pycodestyle errors
+  "EM",     # flake8-errmsg
+  "F",      # pyflakes errors
+  "I",      # isort
+  "ISC",    # flake8-implicit-str-concat
+  "LOG",    # flake8-logging
+  "PGH",    # pygrep-hooks
+  "PYI",    # flake8-pyi
   "RUF100", # unused noqa (yesqa)
-  "UP", # pyupgrade
-  "W", # pycodestyle warnings
-  "YTT", # flake8-2020
+  "RUF022", # unsorted-dunder-all
+  "UP",     # pyupgrade
+  "W",      # pycodestyle warnings
+  "YTT",    # flake8-2020
 ]
-extend-ignore = [
-  "E203", # Whitespace before ':'
-  "E221", # Multiple spaces before operator
-  "E226", # Missing whitespace around arithmetic operator
-  "E241", # Multiple spaces after ','
+ignore = [
+  "E203",   # Whitespace before ':'
+  "E221",   # Multiple spaces before operator
+  "E226",   # Missing whitespace around arithmetic operator
+  "E241",   # Multiple spaces after ','
 ]
 
 [tool.ruff.lint.isort]
 known-first-party = ["tinytext"]
 required-imports = ["from __future__ import annotations"]
+
+[tool.pytest.ini_options]
+filterwarnings = [
+  # Python <= 3.11
+  "ignore:sys.monitoring isn't available, using default core:coverage.exceptions.CoverageWarning",
+]
+testpaths = ["tests"]

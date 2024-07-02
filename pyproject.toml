@@ -16,8 +16,10 @@ keywords = [
   "tiny text",
   "tiny type",
 ]
-license = {text = "MIT"}
-authors = [{name = "Hugo van Kemenade"}]
+license = { text = "MIT" }
+authors = [
+  { name = "Hugo van Kemenade" },
+]
 requires-python = ">=3.8"
 classifiers = [
   "Development Status :: 5 - Production/Stable",
@@ -39,17 +41,14 @@ classifiers = [
 dynamic = [
   "version",
 ]
-[project.optional-dependencies]
-tests = [
+optional-dependencies.tests = [
   "pytest",
   "pytest-cov",
 ]
-[project.urls]
-Changelog = "https://github.com/hugovk/tinytext/releases"
-Homepage = "https://github.com/hugovk/tinytext"
-Source = "https://github.com/hugovk/tinytext"
-[project.scripts]
-tinytext = "tinytext.cli:main"
+urls.Changelog = "https://github.com/hugovk/tinytext/releases"
+urls.Homepage = "https://github.com/hugovk/tinytext"
+urls.Source = "https://github.com/hugovk/tinytext"
+scripts.tinytext = "tinytext.cli:main"
 
 [tool.hatch]
 version.source = "vcs"
@@ -60,8 +59,7 @@ local_scheme = "no-local-version"
 [tool.ruff]
 fix = true
 
-[tool.ruff.lint]
-select = [
+lint.select = [
   "C4",     # flake8-comprehensions
   "E",      # pycodestyle errors
   "EM",     # flake8-errmsg
@@ -71,26 +69,33 @@ select = [
   "LOG",    # flake8-logging
   "PGH",    # pygrep-hooks
   "PYI",    # flake8-pyi
-  "RUF100", # unused noqa (yesqa)
   "RUF022", # unsorted-dunder-all
+  "RUF100", # unused noqa (yesqa)
   "UP",     # pyupgrade
   "W",      # pycodestyle warnings
   "YTT",    # flake8-2020
 ]
-ignore = [
-  "E203",   # Whitespace before ':'
-  "E221",   # Multiple spaces before operator
-  "E226",   # Missing whitespace around arithmetic operator
-  "E241",   # Multiple spaces after ','
+lint.ignore = [
+  "E203", # Whitespace before ':'
+  "E221", # Multiple spaces before operator
+  "E226", # Missing whitespace around arithmetic operator
+  "E241", # Multiple spaces after ','
+]
+lint.isort.known-first-party = [
+  "tinytext",
+]
+lint.isort.required-imports = [
+  "from __future__ import annotations",
 ]
 
-[tool.ruff.lint.isort]
-known-first-party = ["tinytext"]
-required-imports = ["from __future__ import annotations"]
+[tool.pyproject-fmt]
+max_supported_python = "3.13"
 
 [tool.pytest.ini_options]
 filterwarnings = [
   # Python <= 3.11
   "ignore:sys.monitoring isn't available, using default core:coverage.exceptions.CoverageWarning",
 ]
-testpaths = ["tests"]
+testpaths = [
+  "tests",
+]

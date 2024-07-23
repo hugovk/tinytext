@@ -65,6 +65,7 @@ lint.select = [
   "EM",     # flake8-errmsg
   "F",      # pyflakes errors
   "I",      # isort
+  "ICN",    # flake8-import-conventions
   "ISC",    # flake8-implicit-str-concat
   "LOG",    # flake8-logging
   "PGH",    # pygrep-hooks
@@ -80,6 +81,10 @@ lint.ignore = [
   "E221", # Multiple spaces before operator
   "E226", # Missing whitespace around arithmetic operator
   "E241", # Multiple spaces after ','
+]
+lint.flake8-import-conventions.aliases.datetime = "dt"
+lint.flake8-import-conventions.banned-from = [
+  "datetime",
 ]
 lint.isort.known-first-party = [
   "tinytext",

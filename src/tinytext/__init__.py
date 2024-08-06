@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-import importlib.metadata
+from tinytext import _version  # type: ignore[attr-defined]
 
-__version__ = importlib.metadata.version(__name__)
+__version__ = _version.__version__
 
 
 __all__ = ["__version__"]

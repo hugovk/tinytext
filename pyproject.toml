@@ -17,9 +17,7 @@ keywords = [
   "tiny type",
 ]
 license = { text = "MIT" }
-authors = [
-  { name = "Hugo van Kemenade" },
-]
+authors = [ { name = "Hugo van Kemenade" } ]
 requires-python = ">=3.8"
 classifiers = [
   "Development Status :: 5 - Production/Stable",
@@ -38,9 +36,7 @@ classifiers = [
   "Topic :: Artistic Software",
   "Topic :: Text Processing",
 ]
-dynamic = [
-  "version",
-]
+dynamic = [ "version" ]
 optional-dependencies.tests = [
   "pytest",
   "pytest-cov",
@@ -89,15 +85,9 @@ lint.ignore = [
   "S101", # Use of assert detected
 ]
 lint.flake8-import-conventions.aliases.datetime = "dt"
-lint.flake8-import-conventions.banned-from = [
-  "datetime",
-]
-lint.isort.known-first-party = [
-  "tinytext",
-]
-lint.isort.required-imports = [
-  "from __future__ import annotations",
-]
+lint.flake8-import-conventions.banned-from = [ "datetime" ]
+lint.isort.known-first-party = [ "tinytext" ]
+lint.isort.required-imports = [ "from __future__ import annotations" ]
 
 [tool.pyproject-fmt]
 max_supported_python = "3.13"
@@ -107,6 +97,4 @@ filterwarnings = [
   # Python <= 3.11
   "ignore:sys.monitoring isn't available, using default core:coverage.exceptions.CoverageWarning",
 ]
-testpaths = [
-  "tests",
-]
+testpaths = [ "tests" ]

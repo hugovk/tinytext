@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.6.0
+    rev: v0.6.3
     hooks:
       - id: ruff
         args: [--exit-non-zero-on-fix]
@@ -26,7 +26,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.29.1
+    rev: 0.29.2
     hooks:
       - id: check-github-workflows
       - id: check-renovate
@@ -37,7 +37,7 @@ repos:
       - id: actionlint
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.11.1
+    rev: v1.11.2
     hooks:
       - id: mypy
         args: [--strict, --pretty, --show-error-codes]

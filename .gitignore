@@ -160,4 +160,4 @@ cython_debug/
 .idea/
 
 # hatch-vcs
-src/tinytext/_version.py
+src/*/_version.py

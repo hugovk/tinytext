@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from tinytext import _version  # type: ignore[attr-defined]
+from tinytext import _version
 
 __version__ = _version.__version__
 

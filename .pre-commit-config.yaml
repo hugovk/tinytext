@@ -42,6 +42,7 @@ repos:
       - id: mypy
         args: [--strict, --pretty, --show-error-codes, .]
         pass_filenames: false
+        additional_dependencies: [.]
 
   - repo: https://github.com/tox-dev/pyproject-fmt
     rev: 2.2.1

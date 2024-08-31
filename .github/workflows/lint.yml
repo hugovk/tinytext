@@ -20,3 +20,10 @@ jobs:
           python-version: "3.x"
           cache: pip
       - uses: pre-commit/action@v3.0.1
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install -U tox
+
+      - name: Mypy
+        run: tox -e mypy

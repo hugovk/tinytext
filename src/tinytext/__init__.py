@@ -1,9 +1,6 @@
 from __future__ import annotations
 
-from tinytext import _version
-
-__version__ = _version.__version__
-
+from ._version import __version__
 
 __all__ = ["__version__"]
 

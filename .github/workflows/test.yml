@@ -36,11 +36,11 @@ jobs:
 
       - name: Tox tests
         run: |
-          uv run tox -e py
+          .venv/bin/tox -e py
 
       - name: Test CLI
         run: |
-          uv run tox -e cli
+          .venv/bin/tox -e cli
 
       - name: Upload coverage
         uses: codecov/codecov-action@v3.1.5

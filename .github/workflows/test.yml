@@ -40,7 +40,7 @@ jobs:
 
       - name: Test CLI
         run: |
-          tox -e cli
+          uv run tox -e cli
 
       - name: Upload coverage
         uses: codecov/codecov-action@v3.1.5

@@ -82,7 +82,9 @@ lint.ignore = [
   "E221", # Multiple spaces before operator
   "E226", # Missing whitespace around arithmetic operator
   "E241", # Multiple spaces after ','
-  "S101", # Use of assert detected
+]
+lint.per-file-ignores."tests/**/*.py" = [
+  "S101", # Asserts allowed in tests
 ]
 lint.flake8-import-conventions.aliases.datetime = "dt"
 lint.flake8-import-conventions.banned-from = [ "datetime" ]

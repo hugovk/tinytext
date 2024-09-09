@@ -16,7 +16,7 @@ Helpful for all your tiny cute needs.
 Especially helpful for cute bot needs.
 
 A Python port of
-[Rachel White's tiny-text for Node](https://github.com/rachelnicole/tiny-text).
+[Rachel White's tiny-text for Node.js](https://github.com/rachelnicole/tiny-text).
 
 ## How to use
 

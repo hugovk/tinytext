@@ -31,7 +31,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          uv pip install --system -U tox-uv
+          uv venv
+          uv pip install -U tox-uv
 
       - name: Tox tests
         run: |

@@ -15,11 +15,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
-          cache: pip
-      - uses: pre-commit/action@v3.0.1
+      - name: Install uv
+        uses: hynek/setup-cached-uv@v2
+      - name: pre-commit
+        run: uv run --with pre-commit-uv pre-commit run --show-diff-on-failure
 
   mypy:
     runs-on: ubuntu-latest

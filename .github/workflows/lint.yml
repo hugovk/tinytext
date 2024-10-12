@@ -4,7 +4,7 @@ on: [push, pull_request, workflow_dispatch]
 
 env:
   FORCE_COLOR: 1
-  PIP_DISABLE_PIP_VERSION_CHECK: 1
+  PRE_COMMIT_COLOR: always
 
 permissions:
   contents: read

@@ -91,9 +91,6 @@ lint.flake8-import-conventions.banned-from = [ "datetime" ]
 lint.isort.known-first-party = [ "tinytext" ]
 lint.isort.required-imports = [ "from __future__ import annotations" ]
 
-[tool.pyproject-fmt]
-max_supported_python = "3.13"
-
 [tool.pytest.ini_options]
 filterwarnings = [
   # Python <= 3.11

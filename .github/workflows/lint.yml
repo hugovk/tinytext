@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: hugovk/pre-commit-action-uv@v3.0.1
+      - uses: hugovk/pre-commit-uv@main
 
   mypy:
     runs-on: ubuntu-latest

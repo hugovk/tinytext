@@ -15,9 +15,7 @@ def test_something() -> None:
 
 def test_for_digits() -> None:
     # Arrange
-    numbers = "".join(
-        str(character) for character in range(9, -1, -1)
-    )  # numbers = 9876543210
+    numbers = "9876543210"
 
     # Act
     tiny: str = tinytext.tinytext(numbers)

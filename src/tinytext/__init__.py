@@ -4,7 +4,17 @@ from ._version import __version__
 
 __all__ = ["__version__"]
 
-tiny_letters: dict[int, str] = {
+tiny_characters: dict[int, str] = {
+    ord("0"): "⁰",
+    ord("1"): "¹",
+    ord("2"): "²",
+    ord("3"): "³",
+    ord("4"): "⁴",
+    ord("5"): "⁵",
+    ord("6"): "⁶",
+    ord("7"): "⁷",
+    ord("8"): "⁸",
+    ord("9"): "⁹",
     ord("a"): "ᵃ",
     ord("b"): "ᵇ",
     ord("c"): "ᶜ",
@@ -85,5 +95,5 @@ tiny_letters: dict[int, str] = {
 
 def tinytext(big: str) -> str:
     """convert your text ᶦᶰᵗᵒ ᵗᶦᶰᶦᵉʳ ᵗᵉˣᵗ"""
-    tiny: str = big.translate(tiny_letters)
+    tiny: str = big.translate(tiny_characters)
     return tiny

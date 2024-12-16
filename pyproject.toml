@@ -2,7 +2,7 @@
 build-backend = "hatchling.build"
 requires = [
   "hatch-vcs",
-  "hatchling",
+  "hatchling>=1.27",
 ]
 
 [project]
@@ -16,7 +16,8 @@ keywords = [
   "tiny text",
   "tiny type",
 ]
-license = { text = "MIT" }
+license = "MIT"
+license-files = [ "LICENSE.txt" ]
 authors = [ { name = "Hugo van Kemenade" } ]
 requires-python = ">=3.9"
 classifiers = [

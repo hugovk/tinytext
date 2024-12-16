@@ -11,7 +11,9 @@ from . import tinytext
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     parser.add_argument("text", help="Text to tinify")
     parser.add_argument(
         "-V", "--version", action="version", version=f"%(prog)s {__version__}"

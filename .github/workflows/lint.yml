@@ -22,7 +22,8 @@ jobs:
           echo "IMAGE_OS_VERSION=${ImageOS}-${ImageVersion}"
           echo "IMAGE_OS_VERSION=${ImageOS}-${ImageVersion}" >> "$GITHUB_ENV"
           echo "{{ env.IMAGE_OS_VERSION }}"
+          echo 123 > test.txt
       - uses: actions/cache@v4
         with:
-          path: tox.ini
+          path: test.txt
           key: OS-${{ env.ImageOS }}-Version-${{ env.ImageVersion }}

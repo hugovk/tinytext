@@ -17,6 +17,8 @@ jobs:
           echo "runner.os: ${{ runner.os }}"
           echo "ImageOS: $ImageOS"
           echo "ImageVersion: $ImageVersion"
+          echo "env.ImageOS: {{ env.ImageOS }}"
+          echo "env.ImageVersion: {{ env.ImageVersion }}"
           echo "IMAGE_OS_VERSION=${ImageOS}-${ImageVersion}"
           echo "IMAGE_OS_VERSION=${ImageOS}-${ImageVersion}" >> "$GITHUB_ENV"
           echo "{{ env.IMAGE_OS_VERSION }}"

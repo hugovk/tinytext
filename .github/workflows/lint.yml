@@ -14,7 +14,6 @@ jobs:
 
     steps:
       - run: |
-          echo "Linting..."
+          echo "runner.os: ${{ runner.os }}"
           echo "ImageOS: $ImageOS"
           echo "ImageVersion: $ImageVersion"
-          echo "Linting complete."

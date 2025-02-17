@@ -68,6 +68,7 @@ lint.select = [
   "ISC",    # flake8-implicit-str-concat
   "LOG",    # flake8-logging
   "PGH",    # pygrep-hooks
+  "PIE",    # flake8-pie
   "PT",     # flake8-pytest-style
   "PYI",    # flake8-pyi
   "RUF022", # unsorted-dunder-all
@@ -78,11 +79,12 @@ lint.select = [
   "YTT",    # flake8-2020
 ]
 lint.ignore = [
-  "E203",  # Whitespace before ':'
-  "E221",  # Multiple spaces before operator
-  "E226",  # Missing whitespace around arithmetic operator
-  "E241",  # Multiple spaces after ','
-  "UP038", # Makes code slower and more verbose
+  "E203",   # Whitespace before ':'
+  "E221",   # Multiple spaces before operator
+  "E226",   # Missing whitespace around arithmetic operator
+  "E241",   # Multiple spaces after ','
+  "PIE790", # flake8-pie: unnecessary-placeholder
+  "UP038",  # Makes code slower and more verbose
 ]
 lint.per-file-ignores."tests/**/*.py" = [
   "S101", # Asserts allowed in tests

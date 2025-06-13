@@ -37,14 +37,23 @@ classifiers = [
   "Topic :: Text Processing",
 ]
 dynamic = [ "version" ]
-optional-dependencies.tests = [
-  "pytest",
-  "pytest-cov",
-]
 urls.Changelog = "https://github.com/hugovk/tinytext/releases"
 urls.Homepage = "https://github.com/hugovk/tinytext"
 urls.Source = "https://github.com/hugovk/tinytext"
 scripts.tinytext = "tinytext.cli:main"
+
+[dependency-groups]
+dev = [
+  { include-group = "tests" },
+  { include-group = "typing" },
+]
+tests = [
+  "pytest",
+  "pytest-cov",
+]
+typing = [
+  "mypy",
+]
 
 [tool.hatch]
 version.source = "vcs"
@@ -83,7 +92,7 @@ lint.ignore = [
   "E221",   # Multiple spaces before operator
   "E226",   # Missing whitespace around arithmetic operator
   "E241",   # Multiple spaces after ','
-  "PIE790", # flake8-pie: unnecessary-placeholder
+  "PIE790", # Unnecessary pass statement
   "UP038",  # Makes code slower and more verbose
 ]
 lint.per-file-ignores."tests/**/*.py" = [

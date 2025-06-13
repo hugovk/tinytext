@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.11.6
+    rev: v0.11.13
     hooks:
       - id: ruff
         args: [--exit-non-zero-on-fix]
@@ -37,12 +37,12 @@ repos:
       - id: actionlint
 
   - repo: https://github.com/woodruffw/zizmor-pre-commit
-    rev: v1.5.2
+    rev: v1.9.0
     hooks:
       - id: zizmor
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: v2.5.1
+    rev: v2.6.0
     hooks:
       - id: pyproject-fmt
 
@@ -57,7 +57,7 @@ repos:
       - id: tox-ini-fmt
 
   - repo: https://github.com/google/yamlfmt
-    rev: v0.16.0
+    rev: v0.17.0
     hooks:
       - id: yamlfmt
 

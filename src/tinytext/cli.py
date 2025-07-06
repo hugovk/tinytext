@@ -1,7 +1,7 @@
-#!/usr/bin/env python3
 """
 CLI for tinytext
 """
+
 from __future__ import annotations
 
 import argparse

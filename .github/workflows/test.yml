@@ -84,10 +84,12 @@ jobs:
         uses: astral-sh/setup-uv@v6
 
       - name: Tox tests (non-Windows)
+        if: ${{ matrix.os != 'windows-latest' }}
         run: |
           uvx --python "${PYTHON_VERSION}" --with tox-uv tox run --installpkg dist/*.whl -e py
 
       - name: Tox tests (Windows)
+        if: ${{ matrix.os == 'windows-latest' }}
         run: |
           uvx --python "${PYTHON_VERSION}" --with tox-uv tox run --installpkg dist\*.whl -e py
 

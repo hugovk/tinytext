@@ -45,9 +45,20 @@ jobs:
         with:
           name: Packages
           path: dist
-      - run: |
+
+      - if: ${{ matrix.os != 'windows-latest' }}
+        run: |
           tar xf dist/*.tar.gz --strip-components=1
+          ls -l
+          ls -l src
           rm -rf src
+
+      - if: ${{ matrix.os == 'windows-latest' }}
+        run: |
+          tar -xf dist\*.tar.gz --strip-components=1
+          dir
+          dir src
+          rmdir /s /q src
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5

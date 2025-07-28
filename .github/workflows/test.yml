@@ -58,6 +58,7 @@ jobs:
         shell: powershell
         run: |
           dir
+          dir dist
           tar xf dist\*.tar.gz --strip-components=1
           dir
           dir src

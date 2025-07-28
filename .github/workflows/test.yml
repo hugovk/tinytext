@@ -85,11 +85,11 @@ jobs:
 
       - name: Tox tests
         run: |
-          uvx --python "${PYTHON_VERSION}" --with tox-uv tox run --installpkg dist/*.whl -e py
+          uvx --python "${PYTHON_VERSION}" --with tox-uv tox --installpkg "*.whl" -e py
 
       - name: Test CLI
         run: |
-          uvx --python "${PYTHON_VERSION}" --with tox-uv tox run --installpkg dist/*.whl -e cli
+          uvx --python "${PYTHON_VERSION}" --with tox-uv tox --installpkg "*.whl" -e cli
 
       - name: Upload coverage
         uses: codecov/codecov-action@v5

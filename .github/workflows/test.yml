@@ -85,9 +85,13 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v6
 
-      - name: Tox tests
+      - name: Tox tests (non-Windows)
         run: |
-          uvx --python "${PYTHON_VERSION}" --with tox-uv tox run --installpkg "*.whl" -e py
+          uvx --python "${PYTHON_VERSION}" --with tox-uv tox run --installpkg dist/*.whl -e py
+
+      - name: Tox tests (Windows)
+        run: |
+          uvx --python "${PYTHON_VERSION}" --with tox-uv tox run --installpkg dist\*.whl -e py
 
       - name: Test CLI
         run: |

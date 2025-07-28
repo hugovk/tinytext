@@ -57,10 +57,10 @@ jobs:
       - if: ${{ matrix.os == 'windows-latest' }}
         shell: powershell
         run: |
-          ls -l
+          dir
           tar xf dist/*.tar.gz --strip-components=1
-          ls -l
-          ls -l src
+          dir
+          dir src
           rm -rf src
 
       - name: Set up Python ${{ matrix.python-version }}

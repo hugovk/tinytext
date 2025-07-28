@@ -59,7 +59,10 @@ jobs:
         run: |
           dir
           dir dist
-          tar xf dist\*.tar.gz --strip-components=1
+          $archive = Get-ChildItem dist\*.tar.gz | Select-Object -First 1
+          if ($archive) {
+              tar xf $archive --strip-components=1
+          }
           dir
           dir src
           rm -rf src

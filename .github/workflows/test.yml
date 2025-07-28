@@ -53,7 +53,6 @@ jobs:
           ls -l
           ls -l src
           rm -rf src
-          mv dist/*.whl .
           ls -l
 
       - if: ${{ matrix.os == 'windows-latest' }}
@@ -68,7 +67,6 @@ jobs:
           dir
           dir src
           Remove-Item -Recurse -Force src
-          mv dist\*.whl .
           dir
 
       - name: Set up Python ${{ matrix.python-version }}

@@ -65,7 +65,7 @@ jobs:
           }
           dir
           dir src
-          rm -rf src
+          Remove-Item -Recurse -Force src
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5

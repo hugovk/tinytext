@@ -9,27 +9,45 @@ env:
   PIP_DISABLE_PIP_VERSION_CHECK: 1
 
 jobs:
-  test:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version:
-          - "pypy3.11"
-          - "3.14t"
-          - "3.14"
-          - "3.13t"
-          - "3.13"
-          - "3.12"
-          - "3.11"
-          - "3.10"
-          - "3.9"
-        os: [windows-latest, macos-latest, ubuntu-latest]
+  build-package:
+    name: Build & verify package
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           persist-credentials: false
+
+      - uses: hynek/build-and-inspect-python-package@v2
+        id: baipp
+
+    outputs:
+      # Used to define the matrix for tests below. The value is based on
+      # packaging metadata (Trove classifiers).
+      python-versions: ${{ steps.baipp.outputs.supported_python_classifiers_json_array }}
+
+  test:
+    runs-on: ${{ matrix.os }}
+    needs: build-package
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ${{ fromJson(needs.build-package.outputs.python-versions) }}
+        os: [windows-latest, macos-latest, ubuntu-latest]
+
+    env:
+      PYTHON_VERSION: ${{ matrix.python-version }}
+
+    steps:
+      - name: Download pre-built packages
+        uses: actions/download-artifact@v4
+        with:
+          name: Packages
+          path: dist
+      - run: |
+          tar xf dist/*.tar.gz --strip-components=1
+          rm -rf src
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
@@ -47,11 +65,11 @@ jobs:
 
       - name: Tox tests
         run: |
-          uvx --python ${{ matrix.python-version }} --with tox-uv tox -e py
+          uvx --python "${PYTHON_VERSION}" --with tox-uv tox --installpkg dist/*.whl -e py
 
       - name: Test CLI
         run: |
-          uvx --python ${{ matrix.python-version }} --with tox-uv tox -e cli
+          uvx --python "${PYTHON_VERSION}" --with tox-uv tox --installpkg dist/*.whl -e cli
 
       - name: Upload coverage
         uses: codecov/codecov-action@v5

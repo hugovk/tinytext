@@ -90,8 +90,10 @@ jobs:
 
       - name: Tox tests (Windows)
         if: ${{ matrix.os == 'windows-latest' }}
+        shell: pwsh
         run: |
-          uvx --python "${PYTHON_VERSION}" --with tox-uv tox run --installpkg dist\*.whl -e py
+          $wheel = Get-ChildItem dist\*.whl | Select-Object -First 1
+          uvx --python "${PYTHON_VERSION}" --with tox-uv tox run --installpkg $wheel -e py
 
       - name: Test CLI
         run: |

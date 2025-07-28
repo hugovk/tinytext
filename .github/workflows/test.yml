@@ -53,6 +53,7 @@ jobs:
           ls -l
           ls -l src
           rm -rf src
+          mv dist/*.whl .
 
       - if: ${{ matrix.os == 'windows-latest' }}
         shell: powershell
@@ -66,6 +67,7 @@ jobs:
           dir
           dir src
           Remove-Item -Recurse -Force src
+          mv dist\*.whl .
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5

@@ -102,9 +102,6 @@ max_supported_python = "3.14"
 testpaths = [ "tests" ]
 
 [tool.coverage.run]
-disable_warnings = [
-  "no-sysmon",
-]
 omit = [
   "*/tinytext/__main__.py",
   "*/tinytext/cli.py",

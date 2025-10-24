@@ -25,7 +25,15 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
+      - name: Generate CalVer version
+        id: calver
+        run: |
+          echo "version=$(date "+%Y.%m")" >> "$GITHUB_OUTPUT"
       # Drafts your next release notes as pull requests are merged into "main"
       - uses: release-drafter/release-drafter@v6
+        with:
+          tag: ${{ steps.calver.outputs.version }}
+          name: Release ${{ steps.calver.outputs.version }}
+          version: ${{ steps.calver.outputs.version }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

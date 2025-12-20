@@ -1,30 +1,18 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended",
-    ":semanticCommitsDisabled"
-  ],
-  "labels": [
-    "changelog: skip",
-    "dependencies"
-  ],
+  "extends": ["config:recommended", ":semanticCommitsDisabled"],
+  "labels": ["changelog: skip", "dependencies"],
   "minimumReleaseAge": "7 days",
   "packageRules": [
     {
       "groupName": "github-actions",
-      "matchManagers": [
-        "github-actions"
-      ],
+      "matchManagers": ["github-actions"],
       "separateMajorMinor": false
     },
     {
       "groupName": "requirements.txt",
-      "matchFileNames": [
-        "requirements.txt"
-      ]
+      "matchFileNames": ["requirements.txt"]
     }
   ],
-  "schedule": [
-    "on the first day of the month"
-  ]
+  "schedule": ["on the first day of the month"]
 }

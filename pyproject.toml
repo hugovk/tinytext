@@ -102,6 +102,8 @@ omit = [
   "**/__main__.py",
   "**/cli.py",
 ]
+core = "sysmon" # default for 3.14+, available for 3.12+
+disable_warnings = [ "no-sysmon" ] # 3.11 and earlier
 
 [tool.coverage.report]
 # Regexes for lines to exclude from consideration

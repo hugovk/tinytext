@@ -42,24 +42,19 @@ optional-dependencies.tests = [
   "pytest>=9",
   "pytest-cov",
 ]
+urls."Issue tracker" = "https://github.com/hugovk/tinytext/issues"
 urls.Changelog = "https://github.com/hugovk/tinytext/releases"
 urls.Homepage = "https://github.com/hugovk/tinytext"
-urls."Issue tracker" = "https://github.com/hugovk/tinytext/issues"
 urls.Source = "https://github.com/hugovk/tinytext"
 scripts.tinytext = "tinytext.cli:main"
 
 [tool.hatch]
 version.source = "vcs"
-
-[tool.hatch.build.hooks.vcs]
-version-file = "src/tinytext/_version.py"
-
-[tool.hatch.version.raw-options]
-local_scheme = "no-local-version"
+version.raw-options.local_scheme = "no-local-version"
+build.hooks.vcs.version-file = "src/tinytext/_version.py"
 
 [tool.ruff]
 fix = true
-
 lint.extend-select = [
   "C4",     # flake8-comprehensions
   "EM",     # flake8-errmsg
@@ -93,26 +88,24 @@ lint.future-annotations = true
 [tool.pyproject-fmt]
 max_supported_python = "3.15"
 
-[tool.pytest]
-minversion = "9.0"
-testpaths = [ "tests" ]
-
-[tool.coverage.run]
-omit = [
-  "**/__main__.py",
-  "**/cli.py",
-]
-core = "sysmon" # default for 3.14+, available for 3.12+
-disable_warnings = [ "no-sysmon" ] # 3.11 and earlier
-
-[tool.coverage.report]
-# Regexes for lines to exclude from consideration
-exclude_also = [
-  # Don't complain if non-runnable code isn't run:
-  "if __name__ == .__main__.:",
-]
-
 [tool.mypy]
 pretty = true
 strict = true
 show_error_codes = true
+
+[tool.pytest]
+minversion = "9.0"
+testpaths = [ "tests" ]
+
+[tool.coverage]
+run.core = "sysmon"  # default for 3.14+, available for 3.12+
+run.disable_warnings = [ "no-sysmon" ]  # 3.11 and earlier
+run.omit = [
+  "**/__main__.py",
+  "**/cli.py",
+]
+# Regexes for lines to exclude from consideration
+report.exclude_also = [
+  # Don't complain if non-runnable code isn't run:
+  "if __name__ == .__main__.:",
+]

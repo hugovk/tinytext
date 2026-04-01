@@ -16,13 +16,12 @@ on:
 
 jobs:
   update_release_draft:
-    if: github.event.repository.fork == false
+    if: |
+      github.event.repository.fork == false
+      && github.event_name != 'pull_request'
     permissions:
       # write permission is required to create a GitHub Release
       contents: write
-      # write permission is required for autolabeler
-      # otherwise, read permission is required at least
-      pull-requests: write
     runs-on: ubuntu-slim
     steps:
       - name: Generate CalVer version
@@ -35,5 +34,14 @@ jobs:
           tag: ${{ steps.calver.outputs.version }}
           name: Release ${{ steps.calver.outputs.version }}
           version: ${{ steps.calver.outputs.version }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  autolabeler:
+    if: |
+      github.event.repository.fork == false
+      && github.event_name == 'pull_request'
+    permissions:
+      # write permission is required for autolabeler
+      pull-requests: write
+    runs-on: ubuntu-slim
+    steps:
+      - uses: release-drafter/release-drafter/autolabeler@v7

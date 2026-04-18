@@ -57,14 +57,17 @@ build.hooks.vcs.version-file = "src/tinytext/_version.py"
 fix = true
 lint.extend-select = [
   "C4",     # flake8-comprehensions
+  "E",      # pycodestyle errors
   "EM",     # flake8-errmsg
+  "F",      # pyflakes
   "I",      # isort
   "ICN",    # flake8-import-conventions
   "ISC",    # flake8-implicit-str-concat
   "LOG",    # flake8-logging
-  "PERF",   # Perflint
+  "PERF",   # perflint
   "PGH",    # pygrep-hooks
   "PIE",    # flake8-pie
+  "PT",     # flake8-pytest-style
   "PYI",    # flake8-pyi
   "RUF022", # unsorted-dunder-all
   "RUF100", # unused noqa (yesqa)
@@ -73,6 +76,10 @@ lint.extend-select = [
   "YTT",    # flake8-2020
 ]
 lint.ignore = [
+  "E203",   # Whitespace before ':'
+  "E221",   # Multiple spaces before operator
+  "E226",   # Missing whitespace around arithmetic operator
+  "E241",   # Multiple spaces after ','
   "PIE790", # flake8-pie: unnecessary-placeholder
 ]
 lint.per-file-ignores."tests/**/*.py" = [

@@ -71,6 +71,8 @@ lint.extend-select = [
   "PYI",    # flake8-pyi
   "RUF022", # unsorted-dunder-all
   "RUF100", # unused noqa (yesqa)
+  "S",      # flake8-bandit
+  "TID251", # flake8-tidy-imports: banned-api
   "UP",     # pyupgrade
   "W",      # pycodestyle warnings
   "YTT",    # flake8-2020
@@ -88,6 +90,7 @@ lint.per-file-ignores."tests/**/*.py" = [
 lint.flake8-import-conventions.aliases.datetime = "dt"
 lint.flake8-import-conventions.banned-from = [ "datetime" ]
 lint.flake8-pytest-style.parametrize-names-type = "csv"
+lint.flake8-tidy-imports.banned-api."typing.TYPE_CHECKING".msg = "Use TYPE_CHECKING = False instead"
 lint.isort.known-first-party = [ "tinytext" ]
 lint.isort.required-imports = [ "from __future__ import annotations" ]
 lint.future-annotations = true

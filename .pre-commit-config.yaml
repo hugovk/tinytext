@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.20
+    rev: v0.16.0
     hooks:
       - id: ruff-check
         args: [--exit-non-zero-on-fix]
@@ -37,12 +37,12 @@ repos:
       - id: actionlint
 
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: v1.26.1
+    rev: v1.28.0
     hooks:
       - id: zizmor
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: v2.25.1
+    rev: v2.25.3
     hooks:
       - id: pyproject-fmt
 
@@ -53,7 +53,7 @@ repos:
         additional_dependencies: ["trove-classifiers>=2026.6.1.19"]
 
   - repo: https://github.com/tox-dev/tox-ini-fmt
-    rev: 1.7.1
+    rev: 1.8.0
     hooks:
       - id: tox-ini-fmt
 
@@ -63,7 +63,7 @@ repos:
       - id: yamlfmt
 
   - repo: https://github.com/rbubley/mirrors-prettier
-    rev: v3.9.4
+    rev: v3.9.6
     hooks:
       - id: prettier
         args: [--prose-wrap=always, --print-width=88]

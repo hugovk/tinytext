@@ -6,8 +6,7 @@ from __future__ import annotations
 
 import argparse
 
-from . import __version__ as __version__
-from . import tinytext
+from . import __version__, tinytext
 
 
 def main() -> None:

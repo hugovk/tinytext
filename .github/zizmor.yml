@@ -1,0 +1,9 @@
+rules:
+  unpinned-uses:
+    config:
+      policies:
+        # Actions are pinned to commits by .github/workflows/actions.lock,
+        # so tag refs are fine in the workflow files. Remove this once zizmor
+        # ships lockfile support (v1.32.0+):
+        # https://github.com/zizmorcore/zizmor/issues/2477
+        "*": ref-pin

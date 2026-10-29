@@ -58,19 +58,20 @@ jobs:
         continue-on-error: true
         run: |
           set -x
-          which -a python3.16 python3.16t || true
-          python${{ matrix.python-version }} -c "import sys, sysconfig; print(sys.version); print('executable', sys.executable); print('_base_executable', sys._base_executable); print('prefix', sys.prefix); print('scheme', sysconfig.get_default_scheme()); print(sysconfig.get_paths())"
-          python${{ matrix.python-version }} -m sysconfig | head -40 || true
-          uv venv --python ${{ matrix.python-version }} /tmp/diag-venv
-          cat /tmp/diag-venv/pyvenv.cfg
-          ls -la /tmp/diag-venv/bin
-          /tmp/diag-venv/bin/python -c "import sys, sysconfig; print('venv executable', sys.executable); print('venv scheme', sysconfig.get_default_scheme()); print(sysconfig.get_paths())"
-          uv pip install --python /tmp/diag-venv tox
-          ls -la /tmp/diag-venv/bin /tmp/diag-venv/local/bin 2>&1 || true
-          find /tmp/diag-venv -name tox -o -name 'tox*' | head
-          head -1 /tmp/diag-venv/bin/tox || true
-          /tmp/diag-venv/bin/tox --version || true
-          uvx -v --python ${{ matrix.python-version }} --with tox-uv tox --version 2>&1 | tail -30 || true
+          echo "PATH=$PATH"
+          which -a python${{ matrix.python-version }} || true
+          uv python find ${{ matrix.python-version }} || true
+          uv python list --only-installed || true
+          echo "== uvx with version request (verbose head)"
+          uvx -vv --python ${{ matrix.python-version }} --with tox-uv tox --version 2>&1 | grep -vE "Looking at|Acquired lock|Released lock|Found fresh|No cache entry|Using cached|Trying to|Fetching|Resolved|Prepared|Downloaded|Downloading" | head -60 || true
+          echo "== archive env contents"
+          for d in "$UV_CACHE_DIR"/archive-v0/*/; do echo "--- $d"; cat "$d/pyvenv.cfg" 2>/dev/null; ls -la "$d/bin" 2>/dev/null; [ -f "$d/bin/tox" ] && head -1 "$d/bin/tox"; ls -laL "$d/bin/python" 2>&1; done
+          echo "== uvx with explicit /usr/bin interpreter"
+          uvx --python /usr/bin/python${{ matrix.python-version }} --with tox-uv tox --version 2>&1 | tail -3 || true
+          echo "== uvx with explicit deadsnakes venv interpreter"
+          uvx --python "$HOME/venv-${{ matrix.python-version }}/bin/python${{ matrix.python-version }}" --with tox-uv tox --version 2>&1 | tail -3 || true
+          echo "== uvx with the deadsnakes venv removed from PATH"
+          PATH="$(echo "$PATH" | tr ':' '\n' | grep -v "venv-3.16" | paste -sd: -)" uvx --python ${{ matrix.python-version }} --with tox-uv tox --version 2>&1 | tail -3 || true
 
       - name: Tox tests
         run: |

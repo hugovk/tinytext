@@ -56,22 +56,33 @@ jobs:
       - name: Diagnose uvx on deadsnakes
         if: startsWith(matrix.python-version, '3.16')
         continue-on-error: true
+        shell: bash {0}
         run: |
           set -x
-          echo "PATH=$PATH"
-          which -a python${{ matrix.python-version }} || true
-          uv python find ${{ matrix.python-version }} || true
-          uv python list --only-installed || true
-          echo "== uvx with version request (verbose head)"
-          uvx -vv --python ${{ matrix.python-version }} --with tox-uv tox --version 2>&1 | grep -vE "Looking at|Acquired lock|Released lock|Found fresh|No cache entry|Using cached|Trying to|Fetching|Resolved|Prepared|Downloaded|Downloading" | head -60 || true
-          echo "== archive env contents"
-          for d in "$UV_CACHE_DIR"/archive-v0/*/; do echo "--- $d"; cat "$d/pyvenv.cfg" 2>/dev/null; ls -la "$d/bin" 2>/dev/null; [ -f "$d/bin/tox" ] && head -1 "$d/bin/tox"; ls -laL "$d/bin/python" 2>&1; done
+          PY=/usr/bin/python${{ matrix.python-version }}
+          echo "== base interpreter sysconfig"
+          $PY -c "import sys, sysconfig, json; print(sys.version); print('executable', sys.executable, '_base_executable', sys._base_executable); print('prefix', sys.prefix, 'base_prefix', sys.base_prefix, 'exec_prefix', sys.exec_prefix); print('default scheme', sysconfig.get_default_scheme()); print('preferred venv scheme', sysconfig.get_preferred_scheme('prefix')); print('schemes', sysconfig.get_scheme_names()); [print(scheme, json.dumps(sysconfig.get_paths(scheme))) for scheme in sysconfig.get_scheme_names() if scheme.startswith(('posix', 'venv', 'deb'))]"
+          echo "== uv tool install (persistent env we can inspect)"
+          uv tool install --python ${{ matrix.python-version }} tox --with tox-uv
+          T=$(uv tool dir)/tox
+          cat "$T/pyvenv.cfg"
+          ls -la "$T/bin" "$T/local/bin" "$T"
+          find "$T" -maxdepth 3 -name 'tox' -o -maxdepth 3 -name 'tox-*' -o -maxdepth 3 -name 'virtualenv'
+          [ -f "$T/bin/tox" ] && head -1 "$T/bin/tox" && "$T/bin/tox" --version
+          uv tool run tox --version
+          tox --version
+          echo "== ephemeral env from uvx"
+          uvx --python ${{ matrix.python-version }} --with tox-uv tox --version
+          find "$UV_CACHE_DIR/archive-v0" -maxdepth 2 -name pyvenv.cfg | while read -r cfg; do d=$(dirname "$cfg"); echo "--- $d"; cat "$cfg"; ls -la "$d/bin"; ls -la "$d/local/bin" 2>/dev/null; [ -f "$d/bin/tox" ] && head -1 "$d/bin/tox"; done
           echo "== uvx with explicit /usr/bin interpreter"
-          uvx --python /usr/bin/python${{ matrix.python-version }} --with tox-uv tox --version 2>&1 | tail -3 || true
+          uvx --python $PY --with tox-uv tox --version
           echo "== uvx with explicit deadsnakes venv interpreter"
-          uvx --python "$HOME/venv-${{ matrix.python-version }}/bin/python${{ matrix.python-version }}" --with tox-uv tox --version 2>&1 | tail -3 || true
-          echo "== uvx with the deadsnakes venv removed from PATH"
-          PATH="$(echo "$PATH" | tr ':' '\n' | grep -v "venv-3.16" | paste -sd: -)" uvx --python ${{ matrix.python-version }} --with tox-uv tox --version 2>&1 | tail -3 || true
+          uvx --python "$HOME/venv-${{ matrix.python-version }}/bin/python${{ matrix.python-version }}" --with tox-uv tox --version
+          echo "== uvx with a uv-created venv as the interpreter"
+          uv venv --python $PY /tmp/diag-venv && uvx --python /tmp/diag-venv/bin/python --with tox-uv tox --version
+          echo "== plain python -m venv + pip"
+          $PY -m venv /tmp/pyvenv && /tmp/pyvenv/bin/pip install -q tox && ls -la /tmp/pyvenv/bin && /tmp/pyvenv/bin/tox --version
+          true
 
       - name: Tox tests
         run: |

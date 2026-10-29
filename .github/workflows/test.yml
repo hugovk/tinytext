@@ -57,31 +57,29 @@ jobs:
         if: startsWith(matrix.python-version, '3.16')
         continue-on-error: true
         shell: bash {0}
+        env:
+          NO_COLOR: 1
+          FORCE_COLOR: 0
         run: |
           set -x
           PY=/usr/bin/python${{ matrix.python-version }}
-          echo "== base interpreter sysconfig"
-          $PY -c "import sys, sysconfig, json; print(sys.version); print('executable', sys.executable, '_base_executable', sys._base_executable); print('prefix', sys.prefix, 'base_prefix', sys.base_prefix, 'exec_prefix', sys.exec_prefix); print('default scheme', sysconfig.get_default_scheme()); print('preferred venv scheme', sysconfig.get_preferred_scheme('prefix')); print('schemes', sysconfig.get_scheme_names()); [print(scheme, json.dumps(sysconfig.get_paths(scheme))) for scheme in sysconfig.get_scheme_names() if scheme.startswith(('posix', 'venv', 'deb'))]"
-          echo "== uv tool install (persistent env we can inspect)"
-          uv tool install --python ${{ matrix.python-version }} tox --with tox-uv
-          T=$(uv tool dir)/tox
-          cat "$T/pyvenv.cfg"
-          ls -la "$T/bin" "$T/local/bin" "$T"
-          find "$T" -maxdepth 3 -name 'tox' -o -maxdepth 3 -name 'tox-*' -o -maxdepth 3 -name 'virtualenv'
-          [ -f "$T/bin/tox" ] && head -1 "$T/bin/tox" && "$T/bin/tox" --version
-          uv tool run tox --version
-          tox --version
-          echo "== ephemeral env from uvx"
-          uvx --python ${{ matrix.python-version }} --with tox-uv tox --version
-          find "$UV_CACHE_DIR/archive-v0" -maxdepth 2 -name pyvenv.cfg | while read -r cfg; do d=$(dirname "$cfg"); echo "--- $d"; cat "$cfg"; ls -la "$d/bin"; ls -la "$d/local/bin" 2>/dev/null; [ -f "$d/bin/tox" ] && head -1 "$d/bin/tox"; done
-          echo "== uvx with explicit /usr/bin interpreter"
-          uvx --python $PY --with tox-uv tox --version
-          echo "== uvx with explicit deadsnakes venv interpreter"
-          uvx --python "$HOME/venv-${{ matrix.python-version }}/bin/python${{ matrix.python-version }}" --with tox-uv tox --version
-          echo "== uvx with a uv-created venv as the interpreter"
-          uv venv --python $PY /tmp/diag-venv && uvx --python /tmp/diag-venv/bin/python --with tox-uv tox --version
-          echo "== plain python -m venv + pip"
-          $PY -m venv /tmp/pyvenv && /tmp/pyvenv/bin/pip install -q tox && ls -la /tmp/pyvenv/bin && /tmp/pyvenv/bin/tox --version
+          ls -la /usr/bin/python3.16* /usr/bin/python3.16t* 2>/dev/null
+          sudo apt-get install -y -q strace > /dev/null
+          echo "== 1. ephemeral uvx under strace (before anything else touches the tool dir)"
+          strace -f -qq -e trace=execve -s 300 -o /tmp/strace.log uvx --python ${{ matrix.python-version }} --with tox-uv tox --version
+          grep -nE "tox|ENOENT" /tmp/strace.log | tail -25
+          echo "== 2. ephemeral env contents"
+          find "$UV_CACHE_DIR/archive-v0" -maxdepth 2 -name pyvenv.cfg | while read -r cfg; do d=$(dirname "$cfg"); echo "--- $d"; cat "$cfg"; ls -la "$d"; ls -la "$d/bin"; ls -la "$d/local/bin" 2>/dev/null; for f in "$d"/bin/tox "$d"/local/bin/tox; do [ -f "$f" ] && { echo "--- $f"; head -5 "$f"; }; done; done
+          echo "== 3. uvx verbose, filtered"
+          uvx -vv --python ${{ matrix.python-version }} --with tox-uv tox --version 2>&1 | grep -E "Creating|Caching|Running|scripts|bin/|Failed|error|relocat|Using|executable|layout|Layout|entry" | head -60
+          echo "== 4. relocatable venv by hand"
+          uv venv --relocatable --python $PY /tmp/reloc && uv pip install --python /tmp/reloc tox && ls -la /tmp/reloc/bin && head -5 /tmp/reloc/bin/tox && /tmp/reloc/bin/tox --version
+          echo "== 5. non-relocatable venv by hand"
+          uv venv --python $PY /tmp/plain && uv pip install --python /tmp/plain tox && ls -la /tmp/plain/bin && head -2 /tmp/plain/bin/tox && /tmp/plain/bin/tox --version
+          echo "== 6. uv run instead of uvx"
+          uv run --no-project --python ${{ matrix.python-version }} --with tox-uv --with tox tox --version
+          echo "== 7. uvx with 3.12 (control)"
+          uvx --python 3.12 --with tox-uv tox --version
           true
 
       - name: Tox tests

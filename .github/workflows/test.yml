@@ -60,6 +60,25 @@ jobs:
         with:
           version: "0.12.23"
 
+      - name: Diagnose uvx on deadsnakes
+        if: startsWith(matrix.python-version, '3.16')
+        continue-on-error: true
+        run: |
+          set -x
+          which -a python3.16 python3.16t || true
+          python${{ matrix.python-version }} -c "import sys, sysconfig; print(sys.version); print('executable', sys.executable); print('_base_executable', sys._base_executable); print('prefix', sys.prefix); print('scheme', sysconfig.get_default_scheme()); print(sysconfig.get_paths())"
+          python${{ matrix.python-version }} -m sysconfig | head -40 || true
+          uv venv --python ${{ matrix.python-version }} /tmp/diag-venv
+          cat /tmp/diag-venv/pyvenv.cfg
+          ls -la /tmp/diag-venv/bin
+          /tmp/diag-venv/bin/python -c "import sys, sysconfig; print('venv executable', sys.executable); print('venv scheme', sysconfig.get_default_scheme()); print(sysconfig.get_paths())"
+          uv pip install --python /tmp/diag-venv tox
+          ls -la /tmp/diag-venv/bin /tmp/diag-venv/local/bin 2>&1 || true
+          find /tmp/diag-venv -name tox -o -name 'tox*' | head
+          head -1 /tmp/diag-venv/bin/tox || true
+          /tmp/diag-venv/bin/tox --version || true
+          uvx -v --python ${{ matrix.python-version }} --with tox-uv tox --version 2>&1 | tail -30 || true
+
       - name: Tox tests
         run: |
           uvx --python ${{ matrix.python-version }} --with tox-uv tox -e py

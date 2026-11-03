@@ -25,7 +25,6 @@ workflows:
         - 'actions/setup-python@v7.1.0'
         - 'astral-sh/setup-uv@v10.3.2'
         - 'codecov/codecov-action@v7.1.1'
-        - 'deadsnakes/action@v3.2.0'
     '.github/workflows/verify-lockfile.yml':
         - 'actions/checkout@v7.0.1'
 dependencies:
@@ -93,11 +92,6 @@ dependencies:
         repo_id: 200299178
         uses:
             - 'actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd'
-    'deadsnakes/action@v3.2.0':
-        ref: 'v3.2.0'
-        commit: 'sha1-e640ac8743173a67cca4d7d77cd837e514bf98e8'
-        owner_id: 31392125
-        repo_id: 266212610
     'hynek/build-and-inspect-python-package@v3.0.2':
         ref: 'v3.0.2'
         commit: 'sha1-67230f7b8410ae0052b39c1efc89d89fff43ff10'

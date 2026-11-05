@@ -25,8 +25,6 @@ workflows:
         - 'actions/setup-python@v7.1.0'
         - 'astral-sh/setup-uv@v10.3.3'
         - 'codecov/codecov-action@v7.1.1'
-    '.github/workflows/verify-lockfile.yml':
-        - 'actions/checkout@v7.0.1'
 dependencies:
     'actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8':
         ref: 'v4.2.2'

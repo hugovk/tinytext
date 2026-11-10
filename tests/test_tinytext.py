@@ -1,6 +1,10 @@
 from __future__ import annotations
 
+import io
+import sys
+
 import tinytext
+from tinytext import cli
 
 
 def test_something() -> None:
@@ -22,3 +26,17 @@ def test_for_digits() -> None:
 
     # Assert
     assert tiny == "⁹⁸⁷⁶⁵⁴³²¹⁰"
+
+
+def test_cli_cp1252_stdout(monkeypatch) -> None:
+    # Arrange
+    monkeypatch.setattr(sys, "argv", ["tinytext", "hello"])
+    buffer = io.BytesIO()
+    monkeypatch.setattr(sys, "stdout", io.TextIOWrapper(buffer, encoding="cp1252"))
+
+    # Act
+    cli.main()
+    sys.stdout.flush()
+
+    # Assert
+    assert buffer.getvalue().decode("utf-8").strip() == "ʰᵉᶫᶫᵒ"

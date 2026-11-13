@@ -3,6 +3,7 @@ build-backend = "hatchling.build"
 requires = [
   "hatch-vcs",
   "hatchling>=1.27",
+  "python-sbom[hatch]>=0.3",
 ]
 
 [project]
@@ -52,7 +53,11 @@ scripts.tinytext = "tinytext.cli:main"
 version.source = "vcs"
 version.raw-options.local_scheme = "no-local-version"
 build.hooks.vcs.version-file = "src/tinytext/_version.py"
+build.hooks.python-sbom = {}
 
+
+[tool.python-sbom]
+supplier = { name = "Hugo van Kemenade", url = [ "https://github.com/hugovk" ] }
 [tool.ruff]
 fix = true
 lint.extend-select = [

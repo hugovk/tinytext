@@ -37,6 +37,7 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: PyPy",
   "Topic :: Artistic Software",
   "Topic :: Text Processing",
+  "Typing :: Typed",
 ]
 dynamic = [ "version" ]
 optional-dependencies.tests = [
